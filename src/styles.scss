@@ -10,5 +10,30 @@ CSS Reset
   list-style-type: none;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/**********************************************************************
+Global Styles
+**********************************************************************/
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Raleway";
+}
+
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+li {
+  list-style-type: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
