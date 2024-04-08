@@ -2,9 +2,10 @@
 Project Variables
 **********************************************************************/
 // Colors
-$color-dark-primary: #0c0c0c;
-$color-soft-secondary: #272829;
-$color-light: #272829;
+$color-dark-primary: #000;
+$color-lighter-secondary: #1c1c1d;
+$color-light: #363738;
+$color-white: #fff;
 
 // Font Style
 $font-bitter: "Bitter";
@@ -29,7 +30,7 @@ $spacing-lg: 3rem;
 $spacing-xl: 4rem;
 
 // Letter Spacing
-$letter-spacing-reg: 5px;
+$letter-spacing-reg: 3px;
 
 // Layout Mixins
 @mixin flex-center {
