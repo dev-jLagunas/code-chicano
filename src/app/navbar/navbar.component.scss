@@ -4,7 +4,7 @@ Import Variables
 @import "../../variables.scss";
 
 /**********************************************************************
-Navbar Styles - Mobile First 
+Navbar Styles - Basic Styles
 **********************************************************************/
 .navbar-container {
   @include flex-center;
@@ -30,7 +30,7 @@ Navbar Styles - Mobile First
 }
 
 /**********************************************************************
-Component Styles Media Query
+Navbar Styles - Media Query Specific
 **********************************************************************/
 
 @media (max-width: 599px) {
@@ -71,6 +71,14 @@ Component Styles Media Query
     & .navbar-info-text {
       font-size: $font-sm;
       width: 75vw;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-container {
+    & .navlink {
+      font-size: $font-sm;
     }
   }
 }
