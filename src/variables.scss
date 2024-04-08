@@ -1,0 +1,40 @@
+/**********************************************************************
+Project Variables
+**********************************************************************/
+// Colors
+$color-dark-primary: #0c0c0c;
+$color-soft-secondary: #272829;
+$color-light: #272829;
+
+// Font Style
+$font-bitter: "Bitter";
+$font-raleway: "Raleway";
+
+// Font Size
+$font-xs: 12px;
+$font-sm: 14px;
+$font-reg: 16px;
+$font-lg: 24px;
+$font-title-lg: 50px;
+
+// Font Weights
+$weight-xlight: 100;
+$weight-xbold: 900;
+
+// Spacing
+$spacing-small: 0.5rem;
+$spacing-reg: 1rem;
+$spacing-med: 2rem;
+$spacing-lg: 3rem;
+$spacing-xl: 4rem;
+
+// Letter Spacing
+$letter-spacing-reg: 5px;
+
+// Layout Mixins
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
