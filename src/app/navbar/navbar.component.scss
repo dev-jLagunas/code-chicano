@@ -1,0 +1,76 @@
+/**********************************************************************
+Import Variables
+**********************************************************************/
+@import "../../variables.scss";
+
+/**********************************************************************
+Navbar Styles - Mobile First 
+**********************************************************************/
+.navbar-container {
+  @include flex-center;
+
+  & .navbar-sombrero-logo {
+    width: 300px;
+  }
+
+  .navbar-blog-title {
+    font-family: $font-bitter;
+    font-size: $font-title-lg;
+    font-weight: $weight-xbold;
+  }
+
+  .navbar-info-text {
+    font-size: $font-xs;
+    width: 90vw;
+
+    @media (min-width: 425px) {
+      font-size: $font-reg;
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles Media Query
+**********************************************************************/
+
+@media (max-width: 599px) {
+  .navlink {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .navbar-container {
+    width: 100vw;
+    position: relative;
+
+    & .navbar-sombrero-logo {
+      width: 120px;
+      margin-bottom: -2.5rem;
+    }
+
+    & .navbar-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+
+    & .navlink {
+      letter-spacing: $letter-spacing-sm;
+      font-size: $font-xs;
+      color: $color-lighter-secondary;
+    }
+
+    & .admin-link {
+      position: absolute;
+      top: $spacing-med;
+      right: 33px;
+    }
+
+    & .navbar-info-text {
+      font-size: $font-sm;
+      width: 75vw;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+/**********************************************************************
+Import Variables
+**********************************************************************/
+@import "../variables.scss";
+
+/**********************************************************************
+Mat Sidenav Config Styling
+**********************************************************************/
+.mat-sidenav-container {
+  height: 100vh;
+}
+
+.mat-sidenav {
+  width: 100vw;
+  height: 100vh;
+}
+
+/**********************************************************************
+Sidenav Styles - content visible when sidenav is OPEN
+**********************************************************************/
+.sidenav-inner-content {
+  height: 100vh;
+  @include flex-center;
+
+  & .sidenav-sombrero-logo {
+    width: 200px;
+  }
+
+  & .sidenav-blog-title {
+    color: $color-dark-primary;
+    font-size: $font-title-lg;
+    font-weight: $weight-xbold;
+    text-align: center;
+    font-family: $font-bitter;
+  }
+
+  & .sidenav-nav-links {
+    height: 20%;
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    justify-content: space-around;
+    letter-spacing: $letter-spacing-sm;
+    font-size: $font-reg;
+    color: $color-lighter-secondary;
+    font-weight: $weight-normal;
+  }
+
+  & .sidenav-close-btn {
+    letter-spacing: $letter-spacing-sm;
+    margin-top: $spacing-reg;
+    transform: rotate(90deg);
+    position: fixed;
+    left: -60px;
+    bottom: 90px;
+  }
+}
+
+/**********************************************************************
+Blogmain Styles - refers to content visible when sidenav is CLOSED
+**********************************************************************/
+.blogmain-content-container {
+  text-align: center;
+  height: max-content;
+  overflow: hidden;
+  @include flex-center;
+
+  // This div works with Navbar Component to change depending on screen size
+  & .navbar-content-container {
+    @include flex-center;
+    height: 100vh;
+
+    // This reverts back to normal navbar height
+    @media (min-width: 600px) {
+      height: max-content;
+    }
+  }
+
+  .blogmain-open-btn {
+    letter-spacing: $letter-spacing-sm;
+    position: fixed;
+    bottom: 90px;
+    left: -70px;
+    z-index: 100;
+    transform: rotate(90deg);
+    opacity: 0.5;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+      transform: rotate(90deg) translateY(-20px);
+    }
+
+    @media (min-width: 600px) {
+      display: none;
+    }
+  }
+
+  .blogmain-see-more-btn {
+    margin-top: $spacing-med;
+    letter-spacing: $letter-spacing-sm;
+    color: $color-lighter-secondary;
+    font-size: $font-xs;
+
+    @media (min-width: 600px) {
+      display: none;
+    }
+  }
+}
