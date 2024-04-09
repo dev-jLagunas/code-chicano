@@ -2,7 +2,12 @@
   class="mat-sidenav-container"
   [ngClass]="themeService.themeSignal()"
 >
-  <mat-sidenav #sidenav mode="over" class="mat-sidenav">
+  <mat-sidenav
+    #sidenav
+    mode="over"
+    class="mat-sidenav"
+    [ngClass]="themeService.themeSignal()"
+  >
     <aside class="sidenav-inner-content">
       <img
         src="assets/pngs/sombrero.png"
@@ -17,7 +22,10 @@
         <li>Contact</li>
         <li>Login</li>
       </ul>
-      <mat-slide-toggle class="darkmode-toggle-btn" (click)="toggleTheme()"
+      <mat-slide-toggle
+        class="darkmode-toggle-btn"
+        [checked]="themeService.themeSignal() === 'dark'"
+        (click)="toggleTheme()"
         ><i class="fa-solid fa-moon"></i
       ></mat-slide-toggle>
       <button

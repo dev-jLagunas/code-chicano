@@ -41,7 +41,7 @@ $light-secondary-color: #eeeeee;
 .dark {
   @include mat.all-component-colors($dark-theme);
 
-  background-color: $dark-primary-color;
+  background: $dark-primary-color !important;
   color: $light-primary-color;
 }
 
@@ -49,6 +49,6 @@ $light-secondary-color: #eeeeee;
 .light {
   @include mat.all-component-themes($light-theme);
 
-  background-color: $light-primary-color;
+  background-color: $light-primary-color !important;
   color: $dark-primary-color;
 }

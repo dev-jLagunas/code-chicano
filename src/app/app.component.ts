@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ThemeService } from '../services/theme.service';
 import { NgClass } from '@angular/common';
+
 @Component({
   selector: 'app-root',
   standalone: true,
