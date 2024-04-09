@@ -9,4 +9,78 @@
     </figure>
     <p class="page-header-title">ABOUT</p>
   </header>
+  <section class="about-content-container">
+    <div class="about-img-frame">
+      <h2>
+        Juan <br />
+        Lagunas
+      </h2>
+    </div>
+    <div class="tab-wrapper">
+      <img
+        src="assets/pngs/cactus.png"
+        alt="cactus logo"
+        class="tab-img tab-img-left"
+      />
+      <img
+        src="assets/pngs/cactus.png"
+        alt="cactus logo"
+        class="tab-img tab-img-right"
+      />
+      <mat-tab-group color="accent" class="about-tabs-container">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <p class="tab-label">My Story</p>
+          </ng-template>
+          <div class="tab-content">
+            <h3>Hello</h3>
+            @for (paragraph of myStory; track $index) {
+            <p>{{ paragraph }}</p>
+            }
+            <h4>Sincerely, Juan</h4>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <p class="tab-label">My Stack</p>
+          </ng-template>
+          <div class="tab-content">
+            <h3>Stack</h3>
+            <p>
+              As I beginner, I still have a long way to go. Currently, these are
+              the technologies I mostly work with. I do my best to review and
+              ingrain the fundamentals as much as I possibly can.
+            </p>
+            <div class="tech-stack-list">
+              @for (tech of myStack ; track $index) {
+              <ul>
+                <li class="tech-stack-item">
+                  <i class="fa-solid fa-caret-right"></i>{{ tech }}
+                </li>
+              </ul>
+              }
+            </div>
+            <p>
+              In due time, I hope to have a solid grasp on frontend and backend
+              technologies. But that is still some time away. Currently, I am
+              just taking it one day at a time.
+            </p>
+            <h4>More to come...</h4>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <p class="tab-label">My Blog</p>
+          </ng-template>
+          <div class="tab-content">
+            <h3>Thoughts</h3>
+            @for (paragraph of myBlog ; track $index) {
+            <p>{{ paragraph }}</p>
+            }
+            <h4>Thank You</h4>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </section>
 </section>

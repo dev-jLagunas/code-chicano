@@ -38,6 +38,9 @@ $spacing-xl: 4rem;
 // Letter Spacing
 $letter-spacing-sm: 3px;
 
+// Centering
+$center: auto;
+
 // Layout Mixins
 @mixin flex-center {
   display: flex;

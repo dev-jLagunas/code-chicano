@@ -14,7 +14,7 @@ Component Styles - Mobile First
 .page-header-container {
   position: relative;
   width: 100vw;
-  margin-inline: auto;
+  margin-inline: $center;
   margin-block: $spacing-med;
   @include flex-center;
 
@@ -39,5 +39,176 @@ Component Styles - Mobile First
     left: 50%;
     transform: translate(-50%, -50%);
     @include header-style;
+  }
+}
+
+.about-img-frame {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-template-rows: auto max-content;
+  background: url("/assets/images/meblackwhite.jpg") center;
+  background-size: cover;
+  background-position: 50% 30%;
+  color: $color-white;
+  font-size: $font-reg;
+  letter-spacing: $letter-spacing-sm;
+  font-family: $font-bitter;
+  width: 300px;
+  height: 250px;
+  padding: $spacing-med;
+  margin-inline: $center;
+  border-radius: 10px;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 3px double $color-white;
+  }
+  &:before {
+    grid-row: 1 / 2;
+    border-right: none;
+    border-bottom: none;
+  }
+  &:after {
+    grid-row: 1 / span 3;
+    border-left: none;
+  }
+  & h2 {
+    margin: 1rem 1rem -0.5rem -0.5rem;
+    max-width: 100%;
+  }
+}
+
+.tab-wrapper {
+  & .tab-img {
+    display: none;
+  }
+}
+
+.about-tabs-container {
+  & .tab-label {
+    font-size: $font-xs;
+    text-align: center;
+    font-family: $font-raleway;
+  }
+  & .tab-content {
+    width: 90vw;
+    margin-inline: $center;
+    font-size: $font-xs;
+    text-align: start;
+    margin-top: $spacing-reg;
+    padding-bottom: $spacing-med;
+  }
+
+  & h3 {
+    font-size: $font-title-lg;
+    font-weight: $weight-xbold;
+  }
+
+  & p {
+    text-indent: $spacing-reg;
+    line-height: 15px;
+  }
+
+  & h4 {
+    font-size: $font-lg;
+    font-weight: $weight-xbold;
+    text-align: end;
+    margin-right: $spacing-reg;
+  }
+
+  & .tech-stack-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: $spacing-reg;
+    width: max-content;
+    gap: 5px;
+    text-align: start;
+    margin-inline: $center;
+  }
+
+  & .tech-stack-item {
+    letter-spacing: $letter-spacing-sm;
+  }
+
+  & p:nth-of-type(2) {
+    margin-top: $spacing-reg;
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 768px;
+**********************************************************************/
+@media (min-width: 425px) {
+  .about-tabs-container {
+    width: 90vw;
+    margin-inline: $center;
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 768px;
+**********************************************************************/
+
+@media (min-width: 768px) {
+  .about-page-container {
+    height: max-content;
+  }
+
+  .about-img-frame {
+    width: 350px;
+    height: 300px;
+  }
+
+  .about-content-container {
+    position: relative;
+    width: max-content;
+    margin-inline: $center;
+  }
+
+  .tab-wrapper {
+    & .tab-img {
+      display: block;
+      height: 150px;
+      position: absolute;
+      opacity: 0.4;
+    }
+
+    & .tab-img-left {
+      left: -120px;
+      bottom: 40px;
+    }
+
+    & .tab-img-right {
+      right: -100px;
+      bottom: 40px;
+    }
+  }
+
+  .about-tabs-container {
+    width: 600px;
+    margin-inline: $center;
+
+    & .tab-content {
+      width: 550px;
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 1024px;
+**********************************************************************/
+@media (min-width: 1024px) {
+  // .about-content-container {
+  //   width: 75vw;
+  // }
+
+  .about-tabs-container {
+    & .tab-content {
+      font-size: $font-sm;
+    }
   }
 }

@@ -71,8 +71,8 @@ Blogmain Styles - refers to content visible when sidenav is CLOSED
 **********************************************************************/
 .blogmain-content-container {
   text-align: center;
-  height: max-content;
   @include flex-center;
+  overflow-x: hidden;
 
   // This div works with Navbar Component to change depending on screen size
   & .navbar-content-container {
