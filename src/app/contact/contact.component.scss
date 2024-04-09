@@ -1,0 +1,131 @@
+/**********************************************************************
+Import Variables
+**********************************************************************/
+@import "../../variables.scss";
+
+/**********************************************************************
+Component Styles - Mobile First
+**********************************************************************/
+.contact-page-container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page-header-container {
+  position: relative;
+  width: 100vw;
+  margin-inline: $center;
+
+  @include flex-center;
+
+  & .page-header-img-wrapper {
+    width: 100%;
+    height: 70px;
+    margin-bottom: $spacing-med;
+
+    & .page-header-img {
+      height: 160%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+  }
+
+  & .page-header-title {
+    font-size: 4rem;
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include header-style;
+  }
+}
+
+.contact-content-container {
+  height: 100%;
+  margin-inline: $center;
+  position: relative;
+  margin-top: $spacing-med;
+
+  & .contact-text {
+    font-size: $font-title-xl;
+    font-weight: $weight-xbold;
+    color: $color-bold-text;
+    font-family: $font-bitter;
+  }
+
+  & .contact-links {
+    @include flex-center;
+    gap: 10px;
+
+    & .contact-link {
+      font-size: $font-reg;
+      letter-spacing: $letter-spacing-sm;
+
+      & .link-num {
+        font-size: $font-sm;
+        background-color: $color-bold-text;
+        color: $light-primary-color;
+        font-weight: $weight-xbold;
+        padding: 5px;
+        margin-inline: 5px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  & .contact-img-wrapper {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    bottom: -130px;
+    z-index: -10;
+
+    & .contact-img {
+      height: 100%;
+      width: 130%;
+      object-fit: cover;
+      border-top-right-radius: 80%;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 90%;
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 425px;
+**********************************************************************/
+@media (min-width: 425px) {
+  .contact-content-container {
+    width: 500px;
+
+    & .contact-links {
+      & .contact-link {
+        font-size: $font-lg;
+      }
+    }
+
+    & .contact-img-wrapper {
+      bottom: -200px;
+
+      & .contact-img {
+        width: 100%;
+        border-top-right-radius: 30%;
+        border-bottom-right-radius: 20%;
+        border-top-left-radius: 30%;
+        border-bottom-left-radius: 10%;
+      }
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 768px;
+**********************************************************************/
+@media (min-width: 768px) {
+  .contact-content-container {
+    width: 700px;
+  }
+}

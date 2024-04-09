@@ -86,8 +86,7 @@ Navbar Styles - Media Query Specific
     }
 
     & .navbar-info-text {
-      font-size: $font-sm;
-      width: 75vw;
+      display: none;
     }
   }
 }
