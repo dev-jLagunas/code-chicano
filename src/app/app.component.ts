@@ -48,4 +48,9 @@ export class AppComponent implements AfterViewInit {
     this.router.navigate(['home']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
   }
+
+  routeToAboutMe(contentSection: HTMLElement): void {
+    this.router.navigate(['aboutme']);
+    contentSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }

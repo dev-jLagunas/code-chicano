@@ -1,0 +1,43 @@
+/**********************************************************************
+Import Variables
+**********************************************************************/
+@import "../../variables.scss";
+
+/**********************************************************************
+Component Styles - Mobile First
+**********************************************************************/
+
+.about-page-container {
+  height: 100vh;
+}
+
+.page-header-container {
+  position: relative;
+  width: 100vw;
+  margin-inline: auto;
+  margin-block: $spacing-med;
+  @include flex-center;
+
+  & .page-header-img-wrapper {
+    width: 100%;
+    height: 70px;
+    margin-bottom: $spacing-med;
+
+    & .page-header-img {
+      height: 160%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+  }
+
+  & .page-header-title {
+    font-size: 4rem;
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include header-style;
+  }
+}

@@ -20,4 +20,8 @@ export class NavbarComponent {
   routeToHome(): void {
     this.router.navigate(['home']);
   }
+
+  routeToAbout(): void {
+    this.router.navigate(['aboutme']);
+  }
 }
