@@ -1,4 +1,7 @@
-<mat-sidenav-container class="mat-sidenav-container">
+<mat-sidenav-container
+  class="mat-sidenav-container"
+  [ngClass]="themeService.themeSignal()"
+>
   <mat-sidenav #sidenav mode="over" class="mat-sidenav">
     <aside class="sidenav-inner-content">
       <img
@@ -14,6 +17,9 @@
         <li>Contact</li>
         <li>Login</li>
       </ul>
+      <mat-slide-toggle class="darkmode-toggle-btn" (click)="toggleTheme()"
+        ><i class="fa-solid fa-moon"></i
+      ></mat-slide-toggle>
       <button
         mat-raised-button
         (click)="sidenav.close()"

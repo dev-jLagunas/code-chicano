@@ -8,6 +8,7 @@ Navbar Styles - Basic Styles
 **********************************************************************/
 .navbar-container {
   @include flex-center;
+  position: relativ;
 
   & .navbar-sombrero-logo {
     width: 300px;
@@ -17,6 +18,17 @@ Navbar Styles - Basic Styles
     font-family: $font-bitter;
     font-size: $font-title-lg;
     font-weight: $weight-xbold;
+  }
+
+  .darkmode-toggle-btn {
+    font-family: $font-raleway;
+    margin-top: $spacing-lg;
+    position: absolute;
+    top: 0;
+
+    & .fa-moon {
+      font-size: $font-lg;
+    }
   }
 
   .navbar-info-text {
@@ -59,13 +71,17 @@ Navbar Styles - Media Query Specific
     & .navlink {
       letter-spacing: $letter-spacing-sm;
       font-size: $font-xs;
-      color: $color-lighter-secondary;
     }
 
     & .admin-link {
       position: absolute;
       top: $spacing-med;
       right: 33px;
+    }
+
+    & .darkmode-toggle-btn {
+      left: 33px;
+      top: -19px;
     }
 
     & .navbar-info-text {

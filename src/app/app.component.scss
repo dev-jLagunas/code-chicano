@@ -20,6 +20,7 @@ Sidenav Styles - content visible when sidenav is OPEN
 **********************************************************************/
 .sidenav-inner-content {
   height: 100vh;
+  position: relative;
   @include flex-center;
 
   & .sidenav-sombrero-logo {
@@ -27,7 +28,6 @@ Sidenav Styles - content visible when sidenav is OPEN
   }
 
   & .sidenav-blog-title {
-    color: $color-dark-primary;
     font-size: $font-title-lg;
     font-weight: $weight-xbold;
     text-align: center;
@@ -42,8 +42,17 @@ Sidenav Styles - content visible when sidenav is OPEN
     justify-content: space-around;
     letter-spacing: $letter-spacing-sm;
     font-size: $font-reg;
-    color: $color-lighter-secondary;
     font-weight: $weight-normal;
+  }
+
+  & .darkmode-toggle-btn {
+    margin-block: $spacing-lg;
+    position: absolute;
+    top: 0;
+
+    & .fa-moon {
+      font-size: $font-lg;
+    }
   }
 
   & .sidenav-close-btn {
@@ -99,7 +108,6 @@ Blogmain Styles - refers to content visible when sidenav is CLOSED
   .blogmain-see-more-btn {
     margin-top: $spacing-med;
     letter-spacing: $letter-spacing-sm;
-    color: $color-lighter-secondary;
     font-size: $font-xs;
 
     @media (min-width: 600px) {
