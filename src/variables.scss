@@ -3,9 +3,12 @@ Project Variables
 **********************************************************************/
 // Colors
 $dark-primary-color: #0c0c0c;
-$semi-dark-secondary-color: #222831;
+$semi-dark-secondary-color: #272829;
 $light-primary-color: #faf2f2;
 $light-secondary-color: #eeeeee;
+$color-white: #fff;
+$color-transparent: rgb(0, 0, 0, 0.3);
+$color-bold-text: rgb(224, 150, 11);
 
 // Font Style
 $font-bitter: "Bitter";
@@ -16,7 +19,9 @@ $font-xs: 12px;
 $font-sm: 14px;
 $font-reg: 16px;
 $font-lg: 24px;
+$font-xl: 36px;
 $font-title-lg: 50px;
+$font-title-xl: 70px;
 
 // Font Weights
 $weight-xlight: 100;
@@ -39,4 +44,15 @@ $letter-spacing-sm: 3px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+// Text Mixins
+@mixin header-style {
+  color: $color-white;
+  font-weight: $weight-xbold;
+  -webkit-text-fill-color: $color-transparent;
+  -webkit-text-stroke: 2px $color-white;
+  background-clip: text;
+  font-family: $font-bitter;
+  letter-spacing: $letter-spacing-sm;
 }

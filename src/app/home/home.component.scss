@@ -1,4 +1,157 @@
+/**********************************************************************
+Import Variables
+**********************************************************************/
+@import "../../variables.scss";
+
 .home-page-container {
-  border: 2px solid red;
   height: 100vh;
 }
+
+/**********************************************************************
+Component Styles - Mobile First
+**********************************************************************/
+.home-page-container {
+  height: 100vh;
+}
+
+.page-header-container {
+  position: relative;
+  width: 100vw;
+  margin-inline: auto;
+  margin-block: $spacing-med;
+  @include flex-center;
+
+  & .page-header-img-wrapper {
+    width: 100%;
+    height: 70px;
+    margin-bottom: $spacing-med;
+
+    & .page-header-img {
+      height: 160%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 50% 70%;
+    }
+  }
+
+  & .page-header-title {
+    font-size: 4rem;
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include header-style;
+  }
+}
+
+.home-content-container {
+  width: 90vw;
+  margin-inline: auto;
+}
+
+.hero-container {
+  margin-top: $spacing-reg;
+  @include flex-center;
+  width: 310px;
+  margin-inline: auto;
+
+  & .hero-img-wrapper {
+    width: 260px;
+
+    & .hero-img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 60px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 40px;
+    }
+  }
+
+  & .hero-text-wrapper {
+    width: 100%;
+    @include flex-center;
+    gap: 5px;
+    position: relative;
+
+    & .intro-greeting {
+      font-size: $font-title-xl;
+      font-weight: $weight-xbold;
+      font-family: $font-bitter;
+      margin: -8rem 0 0 -2rem;
+      color: $color-bold-text;
+      letter-spacing: $letter-spacing-sm;
+    }
+
+    & .intro-text {
+      padding: 4px 15px;
+      background-color: $semi-dark-secondary-color;
+      color: $light-secondary-color;
+      font-size: $font-sm;
+      border-radius: 5px;
+    }
+
+    & .intro-closing {
+      font-size: $font-xl;
+      font-family: $font-bitter;
+      font-weight: $weight-xbold;
+      color: $color-bold-text;
+      position: absolute;
+      transform: rotate(90deg);
+      right: -25px;
+      bottom: 0;
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 600px;
+**********************************************************************/
+@media (min-width: 600px) {
+  .page-header-container {
+    & .page-header-title {
+      font-size: 6rem;
+    }
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    position: relative;
+    margin-inline: auto;
+
+    & .hero-img-wrapper {
+      width: 500px;
+
+      & .hero-img {
+        margin-left: 0;
+      }
+    }
+
+    & .hero-text-wrapper {
+      justify-content: start;
+      align-items: start;
+      gap: 10px;
+
+      & .intro-greeting {
+        font-size: 6rem;
+        margin: 0 -4rem 0;
+      }
+
+      & .intro-closing {
+        font-size: $font-title-lg;
+        transform: rotate(90deg);
+        position: absolute;
+        right: -40px;
+        bottom: 30px;
+      }
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 768px;
+**********************************************************************/
