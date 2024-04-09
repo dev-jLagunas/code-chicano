@@ -22,8 +22,12 @@
         <li (click)="routeToAboutMe(contentSection)" (click)="sidenav.toggle()">
           About Me
         </li>
-        <li>Blog</li>
-        <li>Contact</li>
+        <li (click)="routeToContact(contentSection)" (click)="sidenav.toggle()">
+          Blog
+        </li>
+        <li (click)="routeToContact(contentSection)" (click)="sidenav.toggle()">
+          Contact
+        </li>
         <li>Login</li>
       </ul>
       <mat-slide-toggle

@@ -140,7 +140,7 @@ Component Styles - Mobile First
 }
 
 /**********************************************************************
-Component Styles - Media Query Specific - Min-Width: 768px;
+Component Styles - Media Query Specific - Min-Width: 425px;
 **********************************************************************/
 @media (min-width: 425px) {
   .about-tabs-container {
@@ -183,7 +183,7 @@ Component Styles - Media Query Specific - Min-Width: 768px;
     }
 
     & .tab-img-right {
-      right: -100px;
+      right: -110px;
       bottom: 40px;
     }
   }

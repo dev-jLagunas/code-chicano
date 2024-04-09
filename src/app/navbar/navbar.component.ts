@@ -24,4 +24,8 @@ export class NavbarComponent {
   routeToAbout(): void {
     this.router.navigate(['aboutme']);
   }
+
+  routeToContact(): void {
+    this.router.navigate(['contact']);
+  }
 }

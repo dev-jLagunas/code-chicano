@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { Router } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -25,6 +26,7 @@ import { Router } from '@angular/router';
     HomeComponent,
     AboutMeComponent,
     MatSidenav,
+    ContactComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -51,6 +53,11 @@ export class AppComponent implements AfterViewInit {
 
   routeToAboutMe(contentSection: HTMLElement): void {
     this.router.navigate(['aboutme']);
+    contentSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  routeToContact(contentSection: HTMLElement): void {
+    this.router.navigate(['contact']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
   }
 }
