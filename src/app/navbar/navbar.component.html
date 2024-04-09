@@ -15,9 +15,14 @@
   <mat-slide-toggle
     class="darkmode-toggle-btn"
     [checked]="themeService.themeSignal() === 'dark'"
-    (change)="toggleTheme()"
-    ><i class="fa-solid fa-moon"></i
-  ></mat-slide-toggle>
+    (click)="toggleTheme()"
+  >
+    @if (themeService.themeSignal() === 'dark') {
+    <i class="fa-solid fa-sun"></i>
+    } @else {
+    <i class="fa-solid fa-moon"></i>
+    }
+  </mat-slide-toggle>
   <p class="navbar-info-text">
     A blog about my journey as a self-taught developer. Things I've learned, my
     thoughts, and all the ups and downs that come with the process.

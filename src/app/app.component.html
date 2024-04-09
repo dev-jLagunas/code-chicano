@@ -26,8 +26,13 @@
         class="darkmode-toggle-btn"
         [checked]="themeService.themeSignal() === 'dark'"
         (click)="toggleTheme()"
-        ><i class="fa-solid fa-moon"></i
-      ></mat-slide-toggle>
+      >
+        @if (themeService.themeSignal() === 'dark') {
+        <i class="fa-solid fa-sun"></i>
+        } @else {
+        <i class="fa-solid fa-moon"></i>
+        }
+      </mat-slide-toggle>
       <button
         mat-raised-button
         (click)="sidenav.close()"

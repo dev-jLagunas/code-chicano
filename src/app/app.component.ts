@@ -6,6 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ThemeService } from '../services/theme.service';
 import { NgClass } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { NgClass } from '@angular/common';
     NavbarComponent,
     MatSlideToggleModule,
     NgClass,
+    MatIconModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

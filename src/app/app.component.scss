@@ -50,7 +50,8 @@ Sidenav Styles - content visible when sidenav is OPEN
     position: absolute;
     top: 0;
 
-    & .fa-moon {
+    & .fa-moon,
+    .fa-sun {
       font-size: $font-lg;
     }
   }
