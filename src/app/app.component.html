@@ -16,7 +16,9 @@
       />
       <h3 class="sidenav-blog-title">Code Chicano</h3>
       <ul class="sidenav-nav-links">
-        <li>Home</li>
+        <li (click)="routeToHome(contentSection)" (click)="sidenav.toggle()">
+          Home
+        </li>
         <li>About Me</li>
         <li>Blog</li>
         <li>Contact</li>
@@ -52,7 +54,13 @@
         open sidenav
       </button>
       <app-navbar></app-navbar>
-      <button mat-raised-button class="blogmain-see-more-btn">See More</button>
+      <button
+        mat-raised-button
+        class="blogmain-see-more-btn"
+        (click)="routeToHome(contentSection)"
+      >
+        See More
+      </button>
     </div>
     <section #contentSection>
       <router-outlet></router-outlet>
