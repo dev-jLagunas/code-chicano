@@ -28,4 +28,8 @@ export class NavbarComponent {
   routeToContact(): void {
     this.router.navigate(['contact']);
   }
+
+  routeToBlogHome(): void {
+    this.router.navigate(['bloghome']);
+  }
 }

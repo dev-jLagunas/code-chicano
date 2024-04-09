@@ -15,7 +15,7 @@ Component Styles - Mobile First
   position: relative;
   width: 100vw;
   margin-inline: $center;
-  margin-block: $spacing-med;
+  margin-bottom: $spacing-med;
   @include flex-center;
 
   & .page-header-img-wrapper {

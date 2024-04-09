@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { Router } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
+import { BlogHomeComponent } from './blog-home/blog-home.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -27,6 +28,7 @@ import { ContactComponent } from './contact/contact.component';
     AboutMeComponent,
     MatSidenav,
     ContactComponent,
+    BlogHomeComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -58,6 +60,11 @@ export class AppComponent implements AfterViewInit {
 
   routeToContact(contentSection: HTMLElement): void {
     this.router.navigate(['contact']);
+    contentSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  routeToBlogHome(contentSection: HTMLElement): void {
+    this.router.navigate(['bloghome']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
   }
 }
