@@ -32,4 +32,8 @@ export class NavbarComponent {
   routeToBlogHome(): void {
     this.router.navigate(['bloghome']);
   }
+
+  routeToLogin(): void {
+    this.router.navigate(['login']);
+  }
 }
