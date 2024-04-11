@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { LoginComponent } from './login/login.component';
+import { BlogAdminComponent } from './blog-admin/blog-admin.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -31,6 +32,7 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     BlogHomeComponent,
     LoginComponent,
+    BlogAdminComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

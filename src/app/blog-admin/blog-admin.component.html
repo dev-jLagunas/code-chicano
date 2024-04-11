@@ -9,4 +9,66 @@
     </figure>
     <p class="page-header-title">Admin</p>
   </header>
+  @if (blogForm) {
+  <section class="form-container">
+    <h3 class="form-text-info">Add New Blog Entry</h3>
+    <form
+      [formGroup]="blogForm"
+      (ngSubmit)="submitBlogForm()"
+      class="blog-admin-form"
+    >
+      <mat-form-field class="form-field">
+        <mat-label class="form-label">Blog Category</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label class="form-label">Blog Topic</mat-label>
+        <input matInput formControlName="subtitle" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label class="form-label">Preview Image</mat-label>
+        <input matInput formControlName="imageUrl" />
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label class="form-label">Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="form-field desc-form-field">
+        <mat-label class="form-label">Preview Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+
+      <div class="quill-container">
+        <quill-editor
+          formControlName="content"
+          class="quill-editor"
+        ></quill-editor>
+      </div>
+
+      <button mat-raised-button type="submit" class="admin-submit-btn">
+        Submit
+      </button>
+    </form>
+  </section>
+  }
+
+  <section class="current-entries-container">
+    @for ( post of blogPosts; track $index) {
+    <div>
+      <h1>{{ post.title }}</h1>
+      <p>{{ post.subtitle }}</p>
+      <button (click)="deletePost(post.id)">delete me</button>
+      <button (click)="editPost(post)">edit me</button>
+    </div>
+    }
+  </section>
 </section>
