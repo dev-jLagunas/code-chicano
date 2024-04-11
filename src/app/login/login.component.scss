@@ -47,6 +47,7 @@ Component Styles - Mobile First
   @include flex-center;
   width: 90vw;
   margin-inline: $center;
+  position: relative;
 
   & .login-greeting-text {
     font-size: $font-title-lg;
@@ -76,12 +77,28 @@ Component Styles - Mobile First
   & .login-img-wrapper {
     width: 600px;
     z-index: -10;
+    margin-top: -15rem;
 
     & .login-img {
       height: 100%;
       width: 100%;
       object-fit: cover;
     }
+  }
+
+  & .invalid-login-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: max-content;
+    width: 300px;
+    background-color: $dark-primary-color;
+    color: $color-bold-text;
+    font-size: $font-xl;
+    font-weight: $weight-xbold;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px solid $color-bold-text;
   }
 }
 
@@ -110,6 +127,7 @@ Component Styles - Media Query Specific - Min-Width: 600px;
 
     & .login-img-wrapper {
       width: 130%;
+      margin-top: 0;
       margin-bottom: 7rem;
       margin-left: -3rem;
 

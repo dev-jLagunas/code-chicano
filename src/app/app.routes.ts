@@ -4,6 +4,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { LoginComponent } from './login/login.component';
+import { BlogAdminComponent } from './blog-admin/blog-admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,4 +13,5 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'bloghome', component: BlogHomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'blog-admin', component: BlogAdminComponent },
 ];
