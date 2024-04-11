@@ -60,15 +60,5 @@
     </form>
   </section>
   }
-
-  <section class="current-entries-container">
-    @for ( post of blogPosts; track $index) {
-    <div>
-      <h1>{{ post.title }}</h1>
-      <p>{{ post.subtitle }}</p>
-      <button (click)="deletePost(post.id)">delete me</button>
-      <button (click)="editPost(post)">edit me</button>
-    </div>
-    }
-  </section>
+  <button mat-raised-button (click)="openBottomSheet()">See All Entries</button>
 </section>
