@@ -8,6 +8,7 @@ Component Styles - Mobile First
 **********************************************************************/
 .home-page-container {
   height: 100vh;
+  margin-bottom: 50rem;
 }
 
 .page-header-container {
@@ -96,8 +97,76 @@ Component Styles - Mobile First
       color: $color-bold-text;
       position: absolute;
       transform: rotate(90deg);
-      right: -25px;
+      right: -24px;
       bottom: 0;
+    }
+  }
+}
+
+.subcontent-container {
+  & .featured-wrapper {
+    margin-top: 31px;
+    width: 231px;
+    height: 200px;
+    margin-inline: auto;
+    position: relative;
+    border-top: 2px solid $color-bold-text;
+    border-bottom: 2px solid $color-bold-text;
+
+    & .featured-title {
+      @include title-style;
+      transform: rotate(270deg);
+      position: absolute;
+      left: -115px;
+      top: 76px;
+    }
+  }
+
+  & .latest-wrapper {
+    width: 231px;
+    height: 200px;
+    margin-inline: auto;
+    position: relative;
+    border-bottom: 2px solid $color-bold-text;
+
+    & .latest-title {
+      @include title-style;
+      transform: rotate(90deg);
+      position: absolute;
+      right: -90px;
+      top: 75px;
+    }
+  }
+
+  & .news-wrapper {
+    width: 231px;
+    height: 200px;
+    margin-inline: auto;
+    position: relative;
+    border-bottom: 2px solid $color-bold-text;
+
+    & .news-title {
+      @include title-style;
+      transform: rotate(270deg);
+      position: absolute;
+      left: -75px;
+      top: 75px;
+    }
+  }
+
+  & .quote-wrapper {
+    width: 231px;
+    height: 200px;
+    margin-inline: auto;
+    position: relative;
+    border-bottom: 2px solid $color-bold-text;
+
+    & .quote-title {
+      @include title-style;
+      transform: rotate(90deg);
+      position: absolute;
+      right: -85px;
+      top: 75px;
     }
   }
 }

@@ -59,3 +59,10 @@ $center: auto;
   font-family: $font-bitter;
   letter-spacing: $letter-spacing-sm;
 }
+
+@mixin title-style {
+  color: $color-bold-text;
+  font-weight: $weight-xbold;
+  font-size: $font-xl;
+  font-family: $font-bitter;
+}
