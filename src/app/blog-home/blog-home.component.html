@@ -9,4 +9,46 @@
     </figure>
     <p class="page-header-title">BLOG - HOME</p>
   </header>
+  @if (blogPosts) {
+  <div class="content-header-container">
+    <h3 class="blog-title">Blog Posts</h3>
+    <button mat-raised-button [matMenuTriggerFor]="menu">
+      Filter by<i class="fa-solid fa-caret-down caret-icon"></i>
+    </button>
+    <mat-menu #menu="matMenu" class="filter-btns-wrapper">
+      <button mat-menu-item color="warn">Category</button>
+      <button mat-menu-item>Subtitle</button>
+      <button mat-menu-item>Date</button>
+    </mat-menu>
+  </div>
+  <main class="blog-posts-container">
+    @for ( post of blogPosts ; track $index) {
+    <mat-card class="single-post-container">
+      <img
+        mat-card-image
+        [src]="post.imageUrl"
+        alt="Photo of a Shiba Inu"
+        class="post-img"
+      />
+      <mat-card-header class="post-header">
+        <mat-card-title class="post-category">{{ post.title }}</mat-card-title>
+        <mat-card-subtitle class="post-topic">{{
+          post.subtitle
+        }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="post-content-wrapper">
+        <p class="post-date">{{ post.date | date : "MMMM, dd, y" }}</p>
+        <p class="post-description">
+          {{ post.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="goToBlogDetail(post.id)">
+          See More
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    }
+  </main>
+  }
 </section>

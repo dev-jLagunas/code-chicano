@@ -8,6 +8,28 @@ Component Styles - Mobile First
 **********************************************************************/
 .blog-page-container {
   height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.content-header-container {
+  margin-top: $spacing-reg;
+  text-align: left;
+  width: 90vw;
+  margin-inline: auto;
+  @include flex-center;
+
+  & .blog-title {
+    font-size: $font-xl;
+    font-weight: $weight-xbold;
+    color: $color-bold-text;
+    letter-spacing: $letter-spacing-sm;
+    margin-bottom: $spacing-reg;
+    font-family: $font-bitter;
+  }
+
+  & .caret-icon {
+    padding-left: 5px;
+  }
 }
 
 .page-header-container {
@@ -38,5 +60,113 @@ Component Styles - Mobile First
     left: 50%;
     transform: translate(-50%, -50%);
     @include header-style;
+  }
+}
+
+.blog-posts-container {
+  margin-top: $spacing-med;
+  @include flex-center;
+  gap: 10px;
+}
+
+.single-post-container {
+  width: 250px;
+  height: 400px;
+  margin-inline: $center;
+  font-family: $font-raleway;
+  padding-block: 10px;
+  @include flex-center;
+
+  & .post-img {
+    width: 50%;
+    margin-inline: center;
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+
+  & .post-header {
+    border: 2px solid $color-bold-text;
+    width: 90%;
+    z-index: 10;
+    @include flex-center;
+
+    & .post-category {
+      font-weight: $weight-xbold;
+      color: $color-bold-text;
+      letter-spacing: $letter-spacing-sm;
+      font-size: $font-lg;
+    }
+
+    & .post-topic {
+      font-weight: $weight-xlight;
+      font-size: $font-xs;
+    }
+  }
+
+  & .post-content-wrapper {
+    & .post-date {
+      font-weight: 500;
+      color: $light-primary-color;
+      letter-spacing: $letter-spacing-sm;
+      background: $color-bold-text;
+      margin-block: 1rem;
+    }
+
+    & .post-description {
+      font-size: $font-xs;
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 600px;
+**********************************************************************/
+@media (min-width: 600px) {
+  .blog-posts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 768px;
+**********************************************************************/
+@media (min-width: 768px) {
+  .blog-posts-container {
+    width: 90vw;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content-header-container {
+    & .blog-title {
+      font-size: $font-title-lg;
+    }
+  }
+
+  .single-post-container {
+    width: auto;
+    max-width: 260px;
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 1024x;
+**********************************************************************/
+@media (min-width: 1024px) {
+  .blog-posts-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 1440px;
+**********************************************************************/
+@media (min-width: 1440px) {
+  .blog-posts-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
   }
 }
