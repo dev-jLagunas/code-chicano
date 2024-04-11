@@ -54,11 +54,18 @@
         ></quill-editor>
       </div>
 
-      <button mat-raised-button type="submit" class="admin-submit-btn">
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        class="admin-submit-btn"
+      >
         Submit
       </button>
     </form>
   </section>
   }
-  <button mat-raised-button (click)="openBottomSheet()">See All Entries</button>
+  <button mat-raised-button (click)="openBottomSheet()" class="see-entries-btn">
+    See All Entries
+  </button>
 </section>

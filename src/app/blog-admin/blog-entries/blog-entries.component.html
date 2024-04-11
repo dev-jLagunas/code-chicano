@@ -1,11 +1,19 @@
-<section class="blog-entries-container">
+<section class="entries-page-container">
   @for ( post of blogPosts; track $index) {
-  <div>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.subtitle }}</p>
-    <time>{{ post.date | date : "MMMM, dd, y" }} </time>
-    <button (click)="deletePost(post.id)">delete me</button>
-    <button (click)="editPost(post)">edit me</button>
+  <div class="blog-entries-container">
+    <div>
+      <h1>{{ post.title }}</h1>
+      <p>{{ post.subtitle }}</p>
+      <time>{{ post.date | date : "MMMM, dd, y" }} </time>
+    </div>
+    <div class="button-wrapper">
+      <button mat-raised-button color="warn" (click)="deletePost(post.id)">
+        delete
+      </button>
+      <button mat-raised-button color="primary" (click)="editPost(post)">
+        edit
+      </button>
+    </div>
   </div>
   }
 </section>

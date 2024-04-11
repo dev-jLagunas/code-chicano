@@ -46,6 +46,7 @@ Component Styles - Mobile First
   width: 90vw;
   max-width: 800px;
   margin-inline: auto;
+  margin-bottom: $spacing-reg;
 
   & .form-text-info {
     font-size: $font-xl;

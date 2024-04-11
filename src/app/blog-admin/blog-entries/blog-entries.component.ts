@@ -5,11 +5,12 @@ import {
   MAT_BOTTOM_SHEET_DATA,
 } from '@angular/material/bottom-sheet';
 import { DatePipe } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-blog-entries',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, MatButtonModule],
   templateUrl: './blog-entries.component.html',
   styleUrl: './blog-entries.component.scss',
 })
