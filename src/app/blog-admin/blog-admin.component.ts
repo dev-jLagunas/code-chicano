@@ -115,7 +115,9 @@ export class BlogAdminComponent implements OnInit {
     });
 
     bottomSheetRef.afterDismissed().subscribe((post) => {
-      this.editPost(post);
+      if (post) {
+        this.editPost(post);
+      }
     });
   }
 }
