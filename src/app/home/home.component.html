@@ -44,7 +44,7 @@
           <p class="content-header">
             Click to see my three latest entries. Use the force!
           </p>
-          <button mat-stroked-button class="content-btn">See Featured</button>
+          <button mat-stroked-button class="content-btn">See Latest</button>
         </div>
       </article>
       <article class="content-wrapper news-wrapper">
@@ -53,7 +53,13 @@
           <p class="content-header">
             Click to see my entire blog up to this point! could be cool?
           </p>
-          <button mat-stroked-button class="content-btn">See Featured</button>
+          <button
+            mat-stroked-button
+            class="content-btn"
+            (click)="navigateToBlogHome()"
+          >
+            See Blog
+          </button>
         </div>
       </article>
       <article class="content-wrapper quote-wrapper">
@@ -62,7 +68,7 @@
           <p class="content-header">
             click to see some random thoughts about stuff, mostly coding.
           </p>
-          <button mat-stroked-button class="content-btn">See Featured</button>
+          <button mat-stroked-button class="content-btn">See Random</button>
         </div>
       </article>
     </section>
