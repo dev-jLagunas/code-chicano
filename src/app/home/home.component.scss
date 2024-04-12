@@ -104,6 +104,19 @@ Component Styles - Mobile First
 }
 
 .subcontent-container {
+  .box-content {
+    height: 100%;
+    @include flex-center;
+    gap: 10px;
+    padding-inline: $spacing-reg;
+    width: 100%;
+
+    & .content-header {
+      font-size: $font-sm;
+      letter-spacing: $letter-spacing-sm;
+    }
+  }
+
   & .featured-wrapper {
     margin-top: 31px;
     width: 231px;
@@ -119,6 +132,10 @@ Component Styles - Mobile First
       position: absolute;
       left: -115px;
       top: 76px;
+    }
+
+    & .box-content {
+      border-right: 2px solid $color-bold-text;
     }
   }
 
@@ -136,6 +153,10 @@ Component Styles - Mobile First
       right: -90px;
       top: 75px;
     }
+
+    & .box-content {
+      border-left: 2px solid $color-bold-text;
+    }
   }
 
   & .news-wrapper {
@@ -152,6 +173,10 @@ Component Styles - Mobile First
       left: -75px;
       top: 75px;
     }
+
+    & .box-content {
+      border-right: 2px solid $color-bold-text;
+    }
   }
 
   & .quote-wrapper {
@@ -167,6 +192,10 @@ Component Styles - Mobile First
       position: absolute;
       right: -85px;
       top: 75px;
+    }
+
+    & .box-content {
+      border-left: 2px solid $color-bold-text;
     }
   }
 }
