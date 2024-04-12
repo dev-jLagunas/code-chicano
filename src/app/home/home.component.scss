@@ -8,7 +8,6 @@ Component Styles - Mobile First
 **********************************************************************/
 .home-page-container {
   height: 100vh;
-  margin-bottom: 50rem;
 }
 
 .page-header-container {
@@ -200,6 +199,12 @@ Component Styles - Mobile First
   }
 }
 
+.thanks-title {
+  @include title-style;
+  font-size: 5rem;
+  margin-top: $spacing-med;
+}
+
 /**********************************************************************
 Component Styles - Media Query Specific - Min-Width: 600px;
 **********************************************************************/
@@ -247,5 +252,91 @@ Component Styles - Media Query Specific - Min-Width: 600px;
 }
 
 /**********************************************************************
-Component Styles - Media Query Specific - Min-Width: 768px;
+Component Styles - Media Query Specific - Min-Width: 1024px;
 **********************************************************************/
+@media (min-width: 1024px) {
+  .subcontent-container {
+    display: flex;
+    width: 900px;
+    margin-inline: auto;
+    margin-top: $spacing-med;
+
+    & .featured-wrapper {
+      margin-top: 0;
+      margin-inline: auto;
+      @include flex-center;
+      border-top: 2px solid $color-bold-text;
+      border-bottom: none;
+
+      & .featured-title {
+        @include title-style;
+        transform: rotate(0deg);
+        position: absolute;
+        left: 25px;
+        top: 0;
+      }
+
+      & .box-content {
+        border-right: none;
+      }
+    }
+
+    & .latest-wrapper {
+      margin-top: 0;
+      margin-inline: auto;
+      @include flex-center;
+      border-top: none;
+      border-bottom: 2px solid $color-bold-text;
+
+      & .latest-title {
+        @include title-style;
+        transform: rotate(0deg);
+        position: absolute;
+        left: -100px;
+        top: 0;
+      }
+
+      & .box-content {
+        border-right: 2px solid $color-bold-text;
+      }
+    }
+
+    & .news-wrapper {
+      margin-inline: auto;
+      @include flex-center;
+      border-top: 2px solid $color-bold-text;
+      border-bottom: none;
+
+      & .news-title {
+        @include title-style;
+        transform: rotate(0deg);
+        position: absolute;
+        left: 60px;
+        top: 0;
+      }
+
+      & .box-content {
+        border-right: none;
+      }
+    }
+
+    & .quote-wrapper {
+      margin-inline: auto;
+      @include flex-center;
+      border-bottom: 2px solid $color-bold-text;
+      border-top: none;
+
+      & .quote-title {
+        @include title-style;
+        transform: rotate(0deg);
+        position: absolute;
+        left: -76px;
+        top: 0;
+      }
+
+      & .box-content {
+        border-right: none;
+      }
+    }
+  }
+}
