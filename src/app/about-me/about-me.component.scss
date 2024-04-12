@@ -106,6 +106,7 @@ Component Styles - Mobile First
   & h3 {
     font-size: $font-title-lg;
     font-weight: $weight-xbold;
+    color: $color-bold-text;
   }
 
   & p {
@@ -118,6 +119,7 @@ Component Styles - Mobile First
     font-weight: $weight-xbold;
     text-align: end;
     margin-right: $spacing-reg;
+    color: $color-bold-text;
   }
 
   & .tech-stack-list {
