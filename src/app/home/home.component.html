@@ -35,7 +35,13 @@
           <p class="content-header">
             Click to see my Featured card! What might it be!?
           </p>
-          <button mat-stroked-button class="content-btn">See Featured</button>
+          <button
+            mat-stroked-button
+            class="content-btn"
+            (click)="openFeaturedDialog()"
+          >
+            See Featured
+          </button>
         </div>
       </article>
       <article class="content-wrapper latest-wrapper">
@@ -44,11 +50,17 @@
           <p class="content-header">
             Click to see my three latest entries. Use the force!
           </p>
-          <button mat-stroked-button class="content-btn">See Latest</button>
+          <button
+            mat-stroked-button
+            class="content-btn"
+            (click)="openLatestDialog()"
+          >
+            See Latest
+          </button>
         </div>
       </article>
-      <article class="content-wrapper news-wrapper">
-        <h3 class="news-title">.BLOG.</h3>
+      <article class="content-wrapper blog-wrapper">
+        <h3 class="blog-title">.BLOG.</h3>
         <div class="box-content">
           <p class="content-header">
             Click to see my entire blog up to this point! could be cool?
@@ -62,13 +74,19 @@
           </button>
         </div>
       </article>
-      <article class="content-wrapper quote-wrapper">
-        <h3 class="quote-title">.RANDO.</h3>
+      <article class="content-wrapper random-wrapper">
+        <h3 class="random-title">.RANDO.</h3>
         <div class="box-content">
           <p class="content-header">
             click to see some random thoughts about stuff, mostly coding.
           </p>
-          <button mat-stroked-button class="content-btn">See Random</button>
+          <button
+            mat-stroked-button
+            class="content-btn"
+            (click)="openRandomDialog()"
+          >
+            See Random
+          </button>
         </div>
       </article>
     </section>
