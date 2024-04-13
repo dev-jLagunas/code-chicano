@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-random-dialog',
   standalone: true,
-  imports: [],
+  imports: [MatButtonModule, MatDialogModule],
   templateUrl: './random-dialog.component.html',
-  styleUrl: './random-dialog.component.scss'
+  styleUrl: './random-dialog.component.scss',
 })
-export class RandomDialogComponent {
-
-}
+export class RandomDialogComponent {}
