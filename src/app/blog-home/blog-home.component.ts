@@ -5,7 +5,7 @@ import { BlogService } from '../../services/blog.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { ThemeService } from '../../services/theme.service';
 @Component({
   selector: 'app-blog-home',
   standalone: true,
@@ -16,7 +16,11 @@ import { MatMenuModule } from '@angular/material/menu';
 export class BlogHomeComponent {
   blogPosts!: any[];
 
-  constructor(private blogService: BlogService, private router: Router) {}
+  constructor(
+    private blogService: BlogService,
+    private router: Router,
+    public themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.blogService.blogPosts.subscribe((posts) => {

@@ -69,23 +69,27 @@ Component Styles - Mobile First
   gap: 10px;
 }
 
+.single-post-container.dark-theme {
+  background-color: $dark-primary-color;
+  border: 2px solid $color-bold-text;
+}
+
 .single-post-container {
   width: 250px;
-  height: 400px;
+  height: 325px;
   margin-inline: $center;
   font-family: $font-raleway;
-  padding-block: 10px;
+  border-radius: 10px;
   @include flex-center;
 
   & .post-img {
-    width: 50%;
+    width: 30%;
     margin-inline: center;
     border-radius: 50%;
     margin-bottom: 5px;
   }
 
   & .post-header {
-    border: 2px solid $color-bold-text;
     width: 90%;
     z-index: 10;
     @include flex-center;
@@ -110,6 +114,8 @@ Component Styles - Mobile First
       letter-spacing: $letter-spacing-sm;
       background: $color-bold-text;
       margin-block: 1rem;
+      padding: 5px;
+      border-radius: 5px;
     }
 
     & .post-description {

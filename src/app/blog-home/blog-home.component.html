@@ -12,7 +12,7 @@
   @if (blogPosts) {
   <div class="content-header-container">
     <h3 class="blog-title">Blog Posts</h3>
-    <button mat-raised-button [matMenuTriggerFor]="menu">
+    <button mat-stroked-button [matMenuTriggerFor]="menu">
       Filter by<i class="fa-solid fa-caret-down caret-icon"></i>
     </button>
     <mat-menu #menu="matMenu" class="filter-btns-wrapper">
@@ -23,7 +23,10 @@
   </div>
   <main class="blog-posts-container">
     @for ( post of blogPosts ; track $index) {
-    <mat-card class="single-post-container">
+    <mat-card
+      class="single-post-container"
+      [class.dark-theme]="themeService.themeSignal() === 'dark'"
+    >
       <img
         mat-card-image
         [src]="post.imageUrl"
@@ -43,7 +46,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button (click)="goToBlogDetail(post.id)">
+        <button mat-stroked-button (click)="goToBlogDetail(post.id)">
           See More
         </button>
       </mat-card-actions>
