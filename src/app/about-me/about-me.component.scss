@@ -8,7 +8,7 @@ Component Styles - Mobile First
 **********************************************************************/
 
 .about-page-container {
-  height: 100vh;
+  height: max-content;
 }
 
 .page-header-container {
@@ -157,7 +157,7 @@ Component Styles - Media Query Specific - Min-Width: 768px;
 
 @media (min-width: 768px) {
   .about-page-container {
-    height: max-content;
+    height: 100vh;
   }
 
   .about-img-frame {
