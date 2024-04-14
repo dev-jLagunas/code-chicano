@@ -2,16 +2,11 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import {
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { FeaturedDialogComponent } from './featured-dialog/featured-dialog.component';
 import { LatestDialogComponent } from './latest-dialog/latest-dialog.component';
 import { RandomDialogComponent } from './random-dialog/random-dialog.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,

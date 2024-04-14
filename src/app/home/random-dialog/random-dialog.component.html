@@ -1,22 +1,19 @@
 <mat-dialog-content class="dialog-content-container">
   <div class="parallax-container thoughts-header">
     <i class="fa-solid fa-arrow-down-long arrow-down-icon"></i>
-    <h3>Random Thoughts</h3>
+    <h3>Random Facts</h3>
     <p>
-      Scroll down to see my random thought of the day. Come back tomorrow for a
-      new one!
+      Scroll down to see a random fact computer science fact of the day. Come
+      back anytime for a new one!
     </p>
   </div>
 
   <section class="parrallax-container parallax-container-2">
     <div class="thoughts-content">
-      <h3>Today's Thought</h3>
+      <h3>Today's Tidbit</h3>
       <p>
         <i class="fa-solid fa-quote-left quote-icon"></i>
-        Whenever I sit down to write code there is a random thought that I need
-        to write and there that is it.<i
-          class="fa-solid fa-quote-right quote-icon"
-        ></i>
+        {{ getRandomFact() }}<i class="fa-solid fa-quote-right quote-icon"></i>
       </p>
     </div>
   </section>
