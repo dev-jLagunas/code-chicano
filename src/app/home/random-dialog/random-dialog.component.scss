@@ -7,37 +7,111 @@ Import Variables
 Component Styles - Mobile First
 **********************************************************************/
 .dialog-content-container {
-  border: 2px solid red;
   height: 500px;
   padding: 0;
 
   & .parallax-container {
-    border: 6px solid green;
     @include flex-center;
-    height: 500px;
-    width: 100%;
+    height: 100%;
     background-attachment: fixed;
-    background-image: url(https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-image: url("/assets/pngs/thinkingskel.png");
     background-position: center;
     background-size: cover;
     text-align: center;
+    background-color: black;
 
     & h3,
     p {
       z-index: 100;
-      color: white;
     }
   }
 
-  .buffer {
-    width: 100%;
-    min-height: 20vh;
+  & .thoughts-header {
     background-color: black;
+    position: relative;
+
+    & h3 {
+      @include title-style;
+      line-height: 1.1;
+      font-size: $font-title-lg;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
+
+    & p {
+      font-size: $font-sm;
+      font-family: $font-raleway;
+      color: $light-primary-color;
+      background-color: rgba(0, 0, 0, 0.8);
+      margin-top: $spacing-reg;
+      padding: 10px;
+    }
+
+    & .arrow-down-icon {
+      font-size: 4rem;
+      color: $color-bold-text;
+      font-weight: $weight-xbold;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
   }
 
   & .parallax-container-2 {
-    border: 4px solid orange;
-    height: 55vh;
+    height: 70vh;
     @include flex-center;
+  }
+
+  .thoughts-content {
+    @include flex-center;
+    text-align: center;
+    & h3 {
+      @include title-style;
+      line-height: 1.1;
+    }
+
+    & p {
+      color: $dark-primary-color;
+      font-size: $font-xs;
+      margin-top: $spacing-reg;
+      padding-block: 10px;
+      font-family: $font-raleway;
+      padding-inline: 5px;
+      letter-spacing: $letter-spacing-sm;
+
+      & .quote-icon {
+        color: $color-bold-text;
+        font-size: $font-reg;
+        display: block;
+        padding-inline: 5px;
+      }
+
+      .fa-quote-left {
+        text-align: start;
+      }
+
+      .fa-quote-right {
+        text-align: end;
+      }
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 600px;
+**********************************************************************/
+@media (min-width: 600px) {
+  .dialog-content-container {
+    height: 100vh;
+    max-width: 450px;
+
+    & .parallax-container {
+      background-size: contain;
+    }
+
+    .thoughts-content {
+      & p {
+        font-size: $font-reg;
+      }
+    }
   }
 }
