@@ -1,0 +1,9 @@
+<section class="post-page-container">
+  @if (post) {
+  <div class="post-wrapper">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <h2 class="post-subtitle">{{ post.subtitle }}</h2>
+    <div [innerHTML]="post.content" class="post-content"></div>
+  </div>
+  }
+</section>
