@@ -53,6 +53,7 @@ Component Styles - Mobile First
   & .parallax-container-2 {
     height: 100%;
     @include flex-center;
+    background: $light-primary-color;
 
     .thoughts-content {
       @include flex-center;

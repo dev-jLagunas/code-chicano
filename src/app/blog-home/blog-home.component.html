@@ -27,12 +27,14 @@
       class="single-post-container"
       [class.dark-theme]="themeService.themeSignal() === 'dark'"
     >
-      <img
-        mat-card-image
-        [src]="post.imageUrl"
-        alt="Photo of a Shiba Inu"
-        class="post-img"
-      />
+      <figure class="post-img-wrapper">
+        <img
+          mat-card-image
+          [src]="post.imageUrl"
+          alt="Photo of a Shiba Inu"
+          class="post-img"
+        />
+      </figure>
       <mat-card-header class="post-header">
         <mat-card-title class="post-category">{{ post.title }}</mat-card-title>
         <mat-card-subtitle class="post-topic">{{

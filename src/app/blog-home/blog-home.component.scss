@@ -76,16 +76,21 @@ Component Styles - Mobile First
 
 .single-post-container {
   width: 250px;
-  height: 325px;
+  height: 400px;
   margin-inline: $center;
   font-family: $font-raleway;
   border-radius: 10px;
   @include flex-center;
 
-  & .post-img {
-    width: 40%;
-    margin-inline: center;
-    border-radius: 50%;
+  & .post-img-wrapper {
+    width: 50%;
+
+    & .post-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   & .post-header {
