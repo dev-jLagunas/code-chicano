@@ -122,6 +122,17 @@ Component Styles - Media Query Specific - Min-Width: 425px;
 }
 
 /**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 600px;
+**********************************************************************/
+@media (min-width: 600px) {
+  .page-header-container {
+    & .page-header-title {
+      font-size: 6rem;
+    }
+  }
+}
+
+/**********************************************************************
 Component Styles - Media Query Specific - Min-Width: 768px;
 **********************************************************************/
 @media (min-width: 768px) {

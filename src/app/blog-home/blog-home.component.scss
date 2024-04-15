@@ -132,6 +132,13 @@ Component Styles - Mobile First
 Component Styles - Media Query Specific - Min-Width: 600px;
 **********************************************************************/
 @media (min-width: 600px) {
+  .page-header-container {
+    & .page-header-title {
+      font-size: 5rem;
+      width: 100%;
+    }
+  }
+
   .blog-posts-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
