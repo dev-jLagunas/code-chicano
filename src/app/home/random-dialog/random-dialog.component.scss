@@ -53,6 +53,7 @@ Component Styles - Mobile First
   & .parallax-container-2 {
     height: 70vh;
     @include flex-center;
+    overflow: auto;
   }
 
   .thoughts-content {

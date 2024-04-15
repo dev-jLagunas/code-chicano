@@ -83,10 +83,9 @@ Component Styles - Mobile First
   @include flex-center;
 
   & .post-img {
-    width: 30%;
+    width: 40%;
     margin-inline: center;
     border-radius: 50%;
-    margin-bottom: 5px;
   }
 
   & .post-header {

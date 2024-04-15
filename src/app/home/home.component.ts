@@ -28,7 +28,9 @@ export class HomeComponent {
   }
 
   openFeaturedDialog(): void {
-    this.dialog.open(FeaturedDialogComponent);
+    this.dialog.open(FeaturedDialogComponent, {
+      autoFocus: false,
+    });
   }
 
   openLatestDialog(): void {
