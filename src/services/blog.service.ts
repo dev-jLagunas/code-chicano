@@ -69,4 +69,15 @@ export class BlogService {
     const randomIndex = Math.floor(Math.random() * currentPosts.length);
     return currentPosts[randomIndex];
   }
+
+  getNewestEntry(): any {
+    const currentPosts = this.blogPostsSource.getValue();
+    if (currentPosts.length === 0) {
+      return null;
+    }
+    currentPosts.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+    return currentPosts[0];
+  }
 }

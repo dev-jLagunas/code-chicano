@@ -7,13 +7,34 @@
 
   <section class="parallax-container-2">
     <div class="thoughts-content">
-      <h3>Today's Tidbit</h3>
-      <p>
-        <i class="fa-solid fa-quote-left quote-icon"></i>
-        Latest blog entries will go here<i
-          class="fa-solid fa-quote-right quote-icon"
-        ></i>
-      </p>
+      <h3>Latest</h3>
+      <mat-card class="latest-post-container">
+        <img
+          mat-card-image
+          [src]="latestPost.imageUrl"
+          alt=""
+          class="latest-img"
+        />
+        <mat-card-header class="latest-header">
+          <mat-card-title class="latest-category">{{
+            latestPost.title
+          }}</mat-card-title>
+          <mat-card-subtitle class="latest-topic">{{
+            latestPost.subtitle
+          }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="latest-content-wrapper">
+          <p class="latest-date">
+            {{ latestPost.date | date : "MMMM, dd, y" }}
+          </p>
+          <p class="latest-description">
+            {{ latestPost.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button class="">See More</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </section>
 </mat-dialog-content>

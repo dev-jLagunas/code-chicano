@@ -53,6 +53,7 @@ Component Styles - Mobile First
   & .parallax-container-2 {
     height: 70vh;
     @include flex-center;
+    background-color: $light-primary-color;
   }
 
   .thoughts-content {
@@ -78,6 +79,55 @@ Component Styles - Mobile First
         padding-inline: 5px;
       }
     }
+  }
+}
+
+.latest-post-container {
+  width: 90%;
+  margin-block: $spacing-reg;
+  margin-inline: $center;
+  font-family: $font-raleway;
+  padding-block: $spacing-reg;
+  @include flex-center;
+
+  & .latest-img {
+    width: 30%;
+    margin-inline: center;
+    margin-bottom: 5px;
+  }
+
+  & .latest-header {
+    border-bottom: 4px double $color-bold-text;
+    @include flex-center;
+
+    & .latest-category {
+      font-weight: $weight-xbold;
+      color: $color-bold-text;
+      font-size: $font-lg;
+    }
+
+    & .latest-topic {
+      font-weight: $weight-xlight;
+      font-size: $font-xs;
+    }
+  }
+
+  & .latest-content-wrapper {
+    & .latest-date {
+      color: $light-primary-color !important;
+      background-color: $color-bold-text;
+    }
+
+    & .latest-description {
+      font-size: $font-xs;
+      border-bottom: 4px double $color-bold-text;
+      width: 100%;
+    }
+  }
+
+  & button {
+    background-color: $color-bold-text;
+    color: $light-primary-color;
   }
 }
 

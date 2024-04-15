@@ -34,7 +34,9 @@ export class HomeComponent {
   }
 
   openLatestDialog(): void {
-    this.dialog.open(LatestDialogComponent);
+    this.dialog.open(LatestDialogComponent, {
+      autoFocus: false,
+    });
   }
 
   openRandomDialog(): void {
