@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { BlogPost } from '../interface/blog-post';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
-  private blogPostsSource = new BehaviorSubject<any[]>(
+  private blogPostsSource = new BehaviorSubject<BlogPost[]>(
     this.loadFromLocalStorage()
   );
   blogPosts = this.blogPostsSource.asObservable();
@@ -14,11 +15,11 @@ export class BlogService {
   constructor() {
     const posts = this.loadFromLocalStorage();
     if (posts.length > 0) {
-      this.postID = Math.max(...posts.map((post: any) => post.id));
+      this.postID = Math.max(...posts.map((post: BlogPost) => post.id));
     }
   }
 
-  addBlogPost(newPost: any) {
+  addBlogPost(newPost: BlogPost) {
     const currentPosts = this.blogPostsSource.getValue();
     newPost.id = ++this.postID;
     this.blogPostsSource.next([...currentPosts, newPost]);
@@ -27,15 +28,17 @@ export class BlogService {
 
   deleteBlogPost(postId: number) {
     const currentPosts = this.blogPostsSource.getValue();
-    const updatedPosts = currentPosts.filter((post) => post.id !== postId);
+    const updatedPosts = currentPosts.filter(
+      (post: BlogPost) => post.id !== postId
+    );
     this.blogPostsSource.next(updatedPosts);
     this.saveToLocalStorage();
   }
 
-  updateBlogPost(updatedPost: any) {
+  updateBlogPost(updatedPost: BlogPost) {
     const currentPosts = this.blogPostsSource.getValue();
     const postIndex = currentPosts.findIndex(
-      (post) => post.id === updatedPost.id
+      (post: BlogPost) => post.id === updatedPost.id
     );
     if (postIndex !== -1) {
       currentPosts[postIndex] = updatedPost;
@@ -51,17 +54,17 @@ export class BlogService {
     );
   }
 
-  private loadFromLocalStorage() {
+  private loadFromLocalStorage(): BlogPost[] {
     const posts = localStorage.getItem('blogPosts');
     return posts ? JSON.parse(posts) : [];
   }
 
-  getBlogPostById(postId: number): any {
+  getBlogPostById(postId: number): BlogPost | undefined {
     const currentPosts = this.blogPostsSource.getValue();
     return currentPosts.find((post) => post.id === postId);
   }
 
-  getRandomBlogPost(): any {
+  getRandomBlogPost(): BlogPost | null {
     const currentPosts = this.blogPostsSource.getValue();
     if (currentPosts.length === 0) {
       return null;
@@ -70,7 +73,7 @@ export class BlogService {
     return currentPosts[randomIndex];
   }
 
-  getNewestEntry(): any {
+  getNewestEntry(): BlogPost | null {
     const currentPosts = this.blogPostsSource.getValue();
     if (currentPosts.length === 0) {
       return null;
