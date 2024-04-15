@@ -266,6 +266,7 @@ Component Styles - Media Query Specific - Min-Width: 1024px;
       margin-inline: auto;
       @include flex-center;
       border-top: 2px solid $color-bold-text;
+      border-left: 2px solid $color-bold-text;
       border-bottom: none;
 
       & .featured-title {
@@ -324,6 +325,7 @@ Component Styles - Media Query Specific - Min-Width: 1024px;
       margin-inline: auto;
       @include flex-center;
       border-bottom: 2px solid $color-bold-text;
+      border-right: 2px solid $color-bold-text;
       border-top: none;
 
       & .random-title {
