@@ -31,6 +31,11 @@ export class RandomDialogComponent {
     'The first electro-mechanical computer was developed in 1939 by Howard Aiken.',
     'The first digital computer, ENIAC, weighed almost 27 tons and took up 1800 square feet.',
   ];
+  selectedFact!: string;
+
+  constructor() {
+    this.selectedFact = this.getRandomFact();
+  }
 
   getRandomFact(): string {
     const randomIndex = Math.floor(Math.random() * this.thoughts.length);

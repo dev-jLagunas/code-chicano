@@ -60,4 +60,13 @@ export class BlogService {
     const currentPosts = this.blogPostsSource.getValue();
     return currentPosts.find((post) => post.id === postId);
   }
+
+  getRandomBlogPost(): any {
+    const currentPosts = this.blogPostsSource.getValue();
+    if (currentPosts.length === 0) {
+      return null;
+    }
+    const randomIndex = Math.floor(Math.random() * currentPosts.length);
+    return currentPosts[randomIndex];
+  }
 }

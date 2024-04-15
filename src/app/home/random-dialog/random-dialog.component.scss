@@ -18,17 +18,11 @@ Component Styles - Mobile First
     background-position: center;
     background-size: cover;
     text-align: center;
-    background-color: black;
-
-    & h3,
-    p {
-      z-index: 100;
-    }
   }
 
   & .thoughts-header {
-    background-color: black;
     position: relative;
+    background-color: $dark-primary-color;
 
     & h3 {
       @include title-style;
@@ -81,16 +75,7 @@ Component Styles - Mobile First
       & .quote-icon {
         color: $color-bold-text;
         font-size: $font-reg;
-        display: block;
         padding-inline: 5px;
-      }
-
-      .fa-quote-left {
-        text-align: start;
-      }
-
-      .fa-quote-right {
-        text-align: end;
       }
     }
   }

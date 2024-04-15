@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { BlogService } from '../../services/blog.service';
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { ThemeService } from '../../services/theme.service';
+
 @Component({
   selector: 'app-blog-home',
   standalone: true,
@@ -13,7 +14,7 @@ import { ThemeService } from '../../services/theme.service';
   templateUrl: './blog-home.component.html',
   styleUrl: './blog-home.component.scss',
 })
-export class BlogHomeComponent {
+export class BlogHomeComponent implements OnInit {
   blogPosts!: any[];
 
   constructor(
