@@ -10,10 +10,13 @@
     <li class="navbar-blog-title">Code Chicano</li>
     <li class="navlink" (click)="routeToBlogHome()">Blog</li>
     <li class="navlink" (click)="routeToContact()">Contact</li>
-    <li class="navlink admin-link" (click)="routeToLogin()">Login</li>
+    <li class="navlink login-link" (click)="routeToLogin()">
+      Login<i class="fa-solid fa-user"></i>
+    </li>
   </ul>
   <mat-slide-toggle
     class="darkmode-toggle-btn"
+    color="warn"
     [checked]="themeService.themeSignal() === 'dark'"
     (click)="toggleTheme()"
   >

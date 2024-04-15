@@ -16,27 +16,56 @@
       />
       <h3 class="sidenav-blog-title">Code Chicano</h3>
       <ul class="sidenav-nav-links">
-        <li (click)="routeToHome(contentSection)" (click)="sidenav.toggle()">
-          Home
+        <li>
+          <button
+            mat-stroked-button
+            (click)="routeToHome(contentSection); sidenav.toggle()"
+            class="sidenav-link-button"
+          >
+            Home
+          </button>
         </li>
-        <li (click)="routeToAboutMe(contentSection)" (click)="sidenav.toggle()">
-          About Me
+        <li>
+          <button
+            mat-stroked-button
+            (click)="routeToAboutMe(contentSection); sidenav.toggle()"
+            class="sidenav-link-button"
+          >
+            About Me
+          </button>
         </li>
-        <li
-          (click)="routeToBlogHome(contentSection)"
-          (click)="sidenav.toggle()"
-        >
-          Blog
+        <li>
+          <button
+            mat-stroked-button
+            (click)="routeToBlogHome(contentSection); sidenav.toggle()"
+            class="sidenav-link-button"
+          >
+            Blog
+          </button>
         </li>
-        <li (click)="routeToContact(contentSection)" (click)="sidenav.toggle()">
-          Contact
+        <li>
+          <button
+            mat-stroked-button
+            (click)="routeToContact(contentSection); sidenav.toggle()"
+            class="sidenav-link-button"
+          >
+            Contact
+          </button>
         </li>
-        <li (click)="routeToLogin(contentSection)" (click)="sidenav.toggle()">
-          Login
+        <li>
+          <button
+            mat-stroked-button
+            (click)="routeToLogin(contentSection); sidenav.toggle()"
+            class="sidenav-link-button"
+          >
+            Login
+          </button>
         </li>
       </ul>
+
       <mat-slide-toggle
         class="darkmode-toggle-btn"
+        color="warn"
         [checked]="themeService.themeSignal() === 'dark'"
         (click)="toggleTheme()"
       >
@@ -47,7 +76,7 @@
         }
       </mat-slide-toggle>
       <button
-        mat-raised-button
+        mat-stroked-button
         (click)="sidenav.close()"
         class="sidenav-close-btn"
       >
@@ -58,7 +87,7 @@
   <mat-sidenav-content class="blogmain-content-container">
     <div class="navbar-content-container">
       <button
-        mat-raised-button
+        mat-stroked-button
         (click)="sidenav.open()"
         class="blogmain-open-btn"
       >

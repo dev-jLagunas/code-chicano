@@ -4,14 +4,13 @@ Import Variables
 @import "../../variables.scss";
 
 /**********************************************************************
-Navbar Styles - Basic Styles
+Navbar Styles - Mobile First
 **********************************************************************/
 .navbar-container {
   @include flex-center;
-  position: relativ;
 
   & .navbar-sombrero-logo {
-    width: 300px;
+    width: 325px;
   }
 
   .navbar-blog-title {
@@ -56,6 +55,7 @@ Navbar Styles - Media Query Specific
   .navbar-container {
     width: 100vw;
     position: relative;
+    margin-bottom: $spacing-reg;
 
     & .navbar-sombrero-logo {
       width: 120px;
@@ -74,14 +74,18 @@ Navbar Styles - Media Query Specific
       font-size: $font-xs;
     }
 
-    & .admin-link {
+    & .login-link {
       position: absolute;
       top: $spacing-med;
-      right: 33px;
+      right: 40px;
+
+      & .fa-user {
+        margin-left: 5px;
+      }
     }
 
     & .darkmode-toggle-btn {
-      left: 33px;
+      left: 40px;
       top: -19px;
     }
 
@@ -94,7 +98,15 @@ Navbar Styles - Media Query Specific
 @media (min-width: 1024px) {
   .navbar-container {
     & .navlink {
-      font-size: $font-sm;
+      font-size: $font-reg;
+    }
+
+    & .login-link {
+      right: 150px;
+    }
+
+    & .darkmode-toggle-btn {
+      left: 150px;
     }
   }
 }

@@ -24,7 +24,7 @@ Sidenav Styles - content visible when sidenav is OPEN
   @include flex-center;
 
   & .sidenav-sombrero-logo {
-    width: 200px;
+    width: 250px;
   }
 
   & .sidenav-blog-title {
@@ -32,17 +32,20 @@ Sidenav Styles - content visible when sidenav is OPEN
     font-weight: $weight-xbold;
     text-align: center;
     font-family: $font-bitter;
+    margin-top: -3rem;
   }
 
   & .sidenav-nav-links {
-    height: 20%;
-    display: flex;
-    text-align: start;
-    flex-direction: column;
-    justify-content: space-around;
+    height: max-content;
     letter-spacing: $letter-spacing-sm;
     font-size: $font-reg;
     font-weight: $weight-normal;
+    font-family: $font-raleway;
+
+    & .sidenav-link-button {
+      width: 125px;
+      margin-bottom: 5px;
+    }
   }
 
   & .darkmode-toggle-btn {
