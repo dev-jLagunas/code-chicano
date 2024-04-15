@@ -1,1 +1,42 @@
-<p>featured-dialog works!</p>
+<mat-dialog-content class="dialog-content-container">
+  <div class="parallax-container thoughts-header">
+    <i class="fa-solid fa-arrow-down-long arrow-down-icon"></i>
+    <h3>Featured Post</h3>
+    <p>Scroll down to see this weeks featured post. Updated weekly.</p>
+  </div>
+
+  <section class="parallax-container-2">
+    <div class="thoughts-content">
+      <mat-card
+        class="featured-post-container"
+        [class.dark-theme]="themeService.themeSignal() === 'dark'"
+      >
+        <img
+          mat-card-image
+          [src]="featuredPost.imageUrl"
+          alt=""
+          class="featured-img"
+        />
+        <mat-card-header class="featured-header">
+          <mat-card-title class="featured-category">{{
+            featuredPost.title
+          }}</mat-card-title>
+          <mat-card-subtitle class="featured-topic">{{
+            featuredPost.subtitle
+          }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="featured-content-wrapper">
+          <p class="featured-date">
+            {{ featuredPost.date | date : "MMMM, dd, y" }}
+          </p>
+          <p class="featured-description">
+            {{ featuredPost.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button class="">See More</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+</mat-dialog-content>

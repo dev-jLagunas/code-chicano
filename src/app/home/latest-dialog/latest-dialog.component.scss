@@ -1,0 +1,102 @@
+/**********************************************************************
+Import Variables
+**********************************************************************/
+@import "../../../../src/variables.scss";
+
+/**********************************************************************
+Component Styles - Mobile First
+**********************************************************************/
+.dialog-content-container {
+  height: 500px;
+  padding: 0;
+
+  & .parallax-container {
+    @include flex-center;
+    height: 100%;
+    background-attachment: fixed;
+    background-image: url("/assets/pngs/thinkingskel.png");
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+  }
+
+  & .thoughts-header {
+    position: relative;
+    background-color: $dark-primary-color;
+
+    & h3 {
+      @include title-style;
+      line-height: 1.1;
+      font-size: $font-title-lg;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
+
+    & p {
+      font-size: $font-sm;
+      font-family: $font-raleway;
+      color: $light-primary-color;
+      background-color: rgba(0, 0, 0, 0.9);
+      margin-top: $spacing-reg;
+      padding: 10px;
+    }
+
+    & .arrow-down-icon {
+      font-size: 4rem;
+      color: $color-bold-text;
+      font-weight: $weight-xbold;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
+  }
+
+  & .parallax-container-2 {
+    height: 70vh;
+    @include flex-center;
+  }
+
+  .thoughts-content {
+    @include flex-center;
+    text-align: center;
+    & h3 {
+      @include title-style;
+      line-height: 1.1;
+    }
+
+    & p {
+      color: $dark-primary-color;
+      font-size: $font-xs;
+      margin-top: $spacing-reg;
+      padding-block: 10px;
+      font-family: $font-raleway;
+      padding-inline: 5px;
+      letter-spacing: $letter-spacing-sm;
+
+      & .quote-icon {
+        color: $color-bold-text;
+        font-size: $font-reg;
+        padding-inline: 5px;
+      }
+    }
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 600px;
+**********************************************************************/
+@media (min-width: 600px) {
+  .dialog-content-container {
+    height: 100vh;
+    max-width: 450px;
+
+    & .parallax-container {
+      background-size: contain;
+    }
+
+    .thoughts-content {
+      & p {
+        font-size: $font-reg;
+      }
+    }
+  }
+}

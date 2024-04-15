@@ -1,0 +1,166 @@
+/**********************************************************************
+Import Variables
+**********************************************************************/
+@import "../../../../src/variables.scss";
+
+/**********************************************************************
+Component Styles - Mobile First
+**********************************************************************/
+.dialog-content-container {
+  height: 500px;
+  padding: 0;
+
+  & .parallax-container {
+    @include flex-center;
+    height: 100%;
+    background-attachment: fixed;
+    background-image: url("/assets/pngs/thinkingskel.png");
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+  }
+
+  & .thoughts-header {
+    position: relative;
+    background-color: $dark-primary-color;
+
+    & h3 {
+      @include title-style;
+      line-height: 1.1;
+      font-size: $font-title-lg;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
+
+    & p {
+      font-size: $font-sm;
+      font-family: $font-raleway;
+      color: $light-primary-color;
+      background-color: rgba(0, 0, 0, 0.9);
+      margin-top: $spacing-reg;
+      padding: 10px;
+    }
+
+    & .arrow-down-icon {
+      font-size: 4rem;
+      color: $color-bold-text;
+      font-weight: $weight-xbold;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    }
+  }
+
+  & .parallax-container-2 {
+    height: 100%;
+    @include flex-center;
+
+    .thoughts-content {
+      @include flex-center;
+      text-align: center;
+
+      & h3 {
+        @include title-style;
+        line-height: 1.1;
+        margin-top: $spacing-med;
+      }
+
+      & p {
+        color: $dark-primary-color;
+        font-size: $font-xs;
+        margin-top: $spacing-reg;
+        padding-block: 10px;
+        font-family: $font-raleway;
+        padding-inline: 5px;
+        letter-spacing: $letter-spacing-sm;
+
+        & .quote-icon {
+          color: $color-bold-text;
+          font-size: $font-reg;
+          padding-inline: 5px;
+        }
+      }
+    }
+  }
+}
+
+.featured-post-container {
+  width: 90%;
+  margin-block: $spacing-reg;
+  margin-inline: $center;
+  font-family: $font-raleway;
+  padding-block: $spacing-reg;
+  @include flex-center;
+
+  & .featured-img {
+    width: 30%;
+    margin-inline: center;
+    margin-bottom: 5px;
+  }
+
+  & .featured-header {
+    border-bottom: 4px double $color-bold-text;
+    @include flex-center;
+
+    & .featured-category {
+      font-weight: $weight-xbold;
+      color: $color-bold-text;
+      font-size: $font-lg;
+    }
+
+    & .featured-topic {
+      font-weight: $weight-xlight;
+      font-size: $font-xs;
+    }
+  }
+
+  & .featured-content-wrapper {
+    & .featured-date {
+      color: $light-primary-color !important;
+      background-color: $color-bold-text;
+    }
+
+    & .featured-description {
+      font-size: $font-xs;
+      border-bottom: 4px double $color-bold-text;
+      width: 100%;
+    }
+  }
+
+  & button {
+    background-color: $color-bold-text;
+    color: $light-primary-color;
+  }
+}
+
+/**********************************************************************
+Component Styles - Media Query Specific - Min-Width: 600px;
+**********************************************************************/
+@media (min-width: 600px) {
+  .dialog-content-container {
+    max-width: 450px;
+    height: 100vh;
+
+    & .parallax-container {
+      background-size: contain;
+    }
+
+    & .parallax-container-2 {
+      height: 100%;
+    }
+
+    .thoughts-content {
+      & p {
+        font-size: $font-reg;
+      }
+    }
+  }
+
+  .featured-post-container {
+    width: 70%;
+
+    & .featured-description {
+      font-size: $font-sm;
+      letter-spacing: none;
+    }
+  }
+}
