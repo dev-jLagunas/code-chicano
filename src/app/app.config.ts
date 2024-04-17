@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { environment } from '../environments/environments';
+import { environment } from '../environments/environment';
 import { provideQuillConfig } from 'ngx-quill';
 import { provideHttpClient } from '@angular/common/http';
 
