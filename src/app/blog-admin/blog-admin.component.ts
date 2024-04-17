@@ -18,7 +18,7 @@ import {
   MatBottomSheetModule,
 } from '@angular/material/bottom-sheet';
 import { BlogEntriesComponent } from './blog-entries/blog-entries.component';
-
+import { BlogPost } from '../../interface/blog-post';
 @Component({
   selector: 'app-blog-admin',
   standalone: true,
@@ -51,10 +51,7 @@ export class BlogAdminComponent implements OnInit {
     this.blogForm = new FormGroup({
       title: new FormControl('', Validators.required),
       subtitle: new FormControl(''),
-      imageUrl: new FormControl(
-        '',
-        Validators.pattern(/(https?:\/\/.*\.(?:png|jpg))/i)
-      ),
+      imageUrl: new FormControl(''),
       date: new FormControl(new Date()),
       description: new FormControl('', Validators.required),
       id: new FormControl(null),
@@ -68,32 +65,32 @@ export class BlogAdminComponent implements OnInit {
 
   submitBlogForm() {
     if (this.blogForm.valid) {
-      const idControl = this.blogForm.get('id');
-      if (idControl && idControl.value) {
-        // Edit mode
-        this.blogService.updateBlogPost(this.blogForm.value);
+      // Include ID in the formData if it exists
+      const formData: BlogPost = {
+        id: this.blogForm.get('id')?.value, // Ensure ID is included if it's an update
+        title: this.blogForm.value.title,
+        subtitle: this.blogForm.value.subtitle,
+        imageUrl: this.blogForm.value.imageUrl,
+        date: this.blogForm.value.date,
+        description: this.blogForm.value.description,
+        content: this.blogForm.value.content,
+      };
+
+      if (formData.id) {
+        // If ID exists, update the existing post
+        this.blogService.updateBlogPost(formData);
       } else {
-        // Add new post
-        this.blogService.addBlogPost(this.blogForm.value);
+        // No ID means this is a new post
+        this.blogService.addBlogPost(formData);
       }
 
       // Reset the form after submission
-      this.blogForm.reset({
-        title: '',
-        subtitle: '',
-        imageUrl: '',
-        date: new Date(),
-        description: '',
-        id: null, // Reset the id
-      });
-      this.inEditMode = false; // Reset the edit mode flag
+      this.blogForm.reset();
+      this.blogForm.get('date')?.setValue(new Date()); // Set date to current date after reset
+      this.blogForm.get('id')?.setValue(null); // Ensure ID is reset
     } else {
       console.log('Form is not valid');
     }
-  }
-
-  deletePost(postId: number) {
-    this.blogService.deleteBlogPost(postId);
   }
 
   editPost(post: any) {

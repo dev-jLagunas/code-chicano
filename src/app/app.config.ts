@@ -7,9 +7,11 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environments';
 import { provideQuillConfig } from 'ngx-quill';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideRouter(routes, withViewTransitions()),
     provideAnimationsAsync(),
     provideNativeDateAdapter(),

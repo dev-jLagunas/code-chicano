@@ -29,7 +29,7 @@ export class BlogEntriesComponent implements OnInit {
     });
   }
 
-  deletePost(postId: number) {
+  deletePost(postId: string) {
     this.blogService.deleteBlogPost(postId);
   }
 

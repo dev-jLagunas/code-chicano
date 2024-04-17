@@ -35,7 +35,9 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button class="">See More</button>
+          <button mat-stroked-button (click)="goToBlogDetail(featuredPost.id)">
+            See More
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>

@@ -29,7 +29,7 @@ export class BlogHomeComponent implements OnInit {
     });
   }
 
-  goToBlogDetail(postId: number) {
+  goToBlogDetail(postId: string) {
     this.router.navigate(['/blog', postId]);
   }
 }

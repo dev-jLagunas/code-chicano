@@ -4,7 +4,7 @@
     <h3>Latest Post</h3>
     <p>Scroll down to see my latest blog entry! Hopefull its good!</p>
   </div>
-
+  @if (latestPost) {
   <section class="parallax-container-2">
     <div class="thoughts-content">
       <h3>Latest</h3>
@@ -32,9 +32,12 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button class="">See More</button>
+          <button mat-stroked-button (click)="goToBlogDetail(latestPost.id)">
+            See More
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
   </section>
+  }
 </mat-dialog-content>
