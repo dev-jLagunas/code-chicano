@@ -17,9 +17,18 @@ const envConfigFile = `export const environment = {
     },
   };`;
 
+console.log(
+  "The file `environment.prod.ts` will be written with the following content: \n"
+);
+console.log(envConfigFile);
+
+// Write to environment.prod.ts
 fs.writeFile(targetPath, envConfigFile, function (err) {
   if (err) {
-    console.log(err);
+    throw console.error(err);
+  } else {
+    console.log(
+      `Angular environment.ts file generated correctly at ${targetPath} \n`
+    );
   }
-  console.log(`Output generated at ${targetPath}`);
 });
