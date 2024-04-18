@@ -32,3 +32,5 @@ fs.writeFile(targetPath, envConfigFile, function (err) {
     );
   }
 });
+
+console.log(process.env);
