@@ -15,12 +15,7 @@ const envConfigFile = `export const environment = {
       appId: '${process.env.FIREBASE_APP_ID}',
       measurementId: '${process.env.FIREBASE_MEASUREMENT_ID}',
     },
-  };`;
-
-console.log(
-  "The file `environment.prod.ts` will be written with the following content: \n"
-);
-console.log(envConfigFile);
+};`;
 
 // Write to environment.prod.ts
 fs.writeFile(targetPath, envConfigFile, function (err) {
@@ -32,5 +27,3 @@ fs.writeFile(targetPath, envConfigFile, function (err) {
     );
   }
 });
-
-console.log(process.env);
