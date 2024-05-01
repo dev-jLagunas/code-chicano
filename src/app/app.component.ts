@@ -48,10 +48,6 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  toggleTheme(): void {
-    this.themeService.updateTheme();
-  }
-
   routeToHome(contentSection: HTMLElement): void {
     this.router.navigate(['home']);
     contentSection.scrollIntoView({ behavior: 'smooth' });

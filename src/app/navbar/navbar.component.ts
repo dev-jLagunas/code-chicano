@@ -13,10 +13,6 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   constructor(public themeService: ThemeService, private router: Router) {}
 
-  toggleTheme() {
-    this.themeService.updateTheme();
-  }
-
   routeToHome(): void {
     this.router.navigate(['home']);
   }

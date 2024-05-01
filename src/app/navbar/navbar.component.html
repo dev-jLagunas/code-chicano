@@ -18,7 +18,7 @@
     class="darkmode-toggle-btn"
     color="warn"
     [checked]="themeService.themeSignal() === 'dark'"
-    (click)="toggleTheme()"
+    (click)="themeService.updateTheme()"
   >
     @if (themeService.themeSignal() === 'dark') {
     <i class="fa-solid fa-sun"></i>
