@@ -1,54 +1,59 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Observable, map, Subscription } from 'rxjs';
 import { BlogPost } from '../interface/blog-post';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs';
+
+interface FirebaseResponse {
+  [key: string]: BlogPost;
+}
+
 @Injectable({
   providedIn: 'root',
 })
-export class BlogService {
+export class BlogService implements OnDestroy {
   private blogPostsSource = new BehaviorSubject<BlogPost[]>([]);
-  blogPosts = this.blogPostsSource.asObservable();
-  private firebaseUrl =
+  blogPosts: Observable<BlogPost[]> = this.blogPostsSource.asObservable();
+
+  private FIREBASE_URL: string =
     'https://code-chicano-default-rtdb.firebaseio.com/blogPosts';
+
+  private subscription!: Subscription;
 
   constructor(private http: HttpClient) {
     this.loadFromFirebase();
   }
 
-  addBlogPost(newPost: BlogPost) {
-    // POST request to the Firebase; response will include the new Firebase-generated ID
-    this.http.post<any>(`${this.firebaseUrl}.json`, newPost).subscribe({
-      next: (response) => {
-        console.log('Firebase response:', response); // Log the response from Firebase
-        newPost.id = response.name; // Use the Firebase-generated ID
-        const currentPosts = this.blogPostsSource.getValue();
-        this.blogPostsSource.next([...currentPosts, newPost]); // Update the local posts state
-      },
-      error: (e) => console.error('Error adding blog post to Firebase:', e),
-    });
-  }
-
   loadFromFirebase() {
-    // Correctly appending `.json` to fetch all blog posts as JSON
-    this.http
-      .get<{ [key: string]: BlogPost }>(`${this.firebaseUrl}.json`)
+    this.subscription = this.http
+      .get<FirebaseResponse>(`${this.FIREBASE_URL}.json`)
       .subscribe({
         next: (response) => {
           const posts = Object.entries(response || {}).map(([key, value]) => ({
             ...value,
-            id: key, // Using the key from Firebase as the post ID
+            id: key,
           }));
-          this.blogPostsSource.next(posts); // Update the BehaviorSubject with the fetched posts
+          this.blogPostsSource.next(posts);
         },
         error: (e) => console.error('Error loading posts from Firebase:', e),
       });
   }
 
+  //Change this later because its better to not subscribe inside service. Instead subscribe in the component that uses this.
+  // in this case I would need to change the blog admin class
+  addBlogPost(newPost: BlogPost) {
+    this.http.post<any>(`${this.FIREBASE_URL}.json`, newPost).subscribe({
+      next: (response) => {
+        newPost.id = response.name;
+        const currentPosts = this.blogPostsSource.getValue();
+        this.blogPostsSource.next([...currentPosts, newPost]);
+      },
+      error: (e) => console.error('Error adding blog post to Firebase:', e),
+    });
+  }
+
+  //Same as above
   deleteBlogPost(postId: string) {
-    const url = `${this.firebaseUrl}/${postId}.json`; // Corrected URL format
-    console.log('URL for DELETE:', url); // Logging the correct URL
+    const url = `${this.FIREBASE_URL}/${postId}.json`;
     this.http.delete(url).subscribe({
       next: () => {
         const updatedPosts = this.blogPostsSource
@@ -61,15 +66,10 @@ export class BlogService {
   }
 
   updateBlogPost(updatedPost: BlogPost) {
-    // Ensure the URL is correctly pointing to the specific post to update
-    const url = `${this.firebaseUrl}/${updatedPost.id}.json`;
+    const url = `${this.FIREBASE_URL}/${updatedPost.id}.json`;
 
-    // Send a PUT request to Firebase to update the specific post
     this.http.put<BlogPost>(url, updatedPost).subscribe({
-      next: (response) => {
-        // Handle the response if necessary, typically the updated post data is returned
-        console.log('Update response:', response);
-        // Update the local state to reflect the changes
+      next: () => {
         const currentPosts = this.blogPostsSource.getValue();
         const postIndex = currentPosts.findIndex(
           (post) => post.id === updatedPost.id
@@ -84,7 +84,7 @@ export class BlogService {
   }
 
   getBlogPostById(postId: string): Observable<BlogPost | undefined> {
-    return this.http.get<BlogPost>(`${this.firebaseUrl}/${postId}.json`).pipe(
+    return this.http.get<BlogPost>(`${this.FIREBASE_URL}/${postId}.json`).pipe(
       map((post) => {
         if (!post) return undefined;
         return { ...post, id: postId };
@@ -112,5 +112,9 @@ export class BlogService {
         return posts[0];
       })
     );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
