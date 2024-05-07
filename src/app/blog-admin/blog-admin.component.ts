@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,6 +19,8 @@ import {
 } from '@angular/material/bottom-sheet';
 import { BlogEntriesComponent } from './blog-entries/blog-entries.component';
 import { BlogPost } from '../../interface/blog-post';
+import { takeUntil, Subject } from 'rxjs';
+
 @Component({
   selector: 'app-blog-admin',
   standalone: true,
@@ -37,10 +39,11 @@ import { BlogPost } from '../../interface/blog-post';
   templateUrl: './blog-admin.component.html',
   styleUrl: './blog-admin.component.scss',
 })
-export class BlogAdminComponent implements OnInit {
+export class BlogAdminComponent implements OnInit, OnDestroy {
   blogForm!: FormGroup;
   blogPosts: any[] = [];
   inEditMode: boolean = false;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private blogService: BlogService,
@@ -58,7 +61,7 @@ export class BlogAdminComponent implements OnInit {
       content: new FormControl('', Validators.required),
     });
 
-    this.blogService.blogPosts.subscribe((posts) => {
+    this.blogService.blogPosts$.subscribe((posts) => {
       this.blogPosts = posts;
     });
   }
@@ -78,10 +81,29 @@ export class BlogAdminComponent implements OnInit {
 
       if (formData.id) {
         // If ID exists, update the existing post
-        this.blogService.updateBlogPost(formData);
+        this.blogService
+          .updateBlogPost(formData)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: () => {
+              alert(`Blog post '${formData.title}' updated successfully`);
+            },
+            error: (e) => {
+              console.error('Error updating blog post:', e);
+            },
+          });
       } else {
-        // No ID means this is a new post
-        this.blogService.addBlogPost(formData);
+        this.blogService
+          .addBlogPost(formData)
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (updatedPost) => {
+              alert(`Blog post '${updatedPost.title}' added successfully`);
+            },
+            error: (e) => {
+              console.error('Error adding blog post:', e);
+            },
+          });
       }
 
       // Reset the form after submission
@@ -116,5 +138,10 @@ export class BlogAdminComponent implements OnInit {
         this.editPost(post);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

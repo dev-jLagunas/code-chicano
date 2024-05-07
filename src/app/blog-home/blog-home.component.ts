@@ -24,7 +24,7 @@ export class BlogHomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.blogService.blogPosts.subscribe((posts) => {
+    this.blogService.blogPosts$.subscribe((posts) => {
       this.blogPosts = posts;
     });
   }
