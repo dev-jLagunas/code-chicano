@@ -19,6 +19,7 @@
     color="warn"
     [checked]="themeService.themeSignal() === 'dark'"
     (click)="themeService.updateTheme()"
+    aria-label="Toggle dark mode"
   >
     @if (themeService.themeSignal() === 'dark') {
     <i class="fa-solid fa-sun"></i>
