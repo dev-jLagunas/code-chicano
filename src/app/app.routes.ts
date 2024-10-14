@@ -1,18 +1,58 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { ContactComponent } from './contact/contact.component';
-import { BlogHomeComponent } from './blog-home/blog-home.component';
-import { LoginComponent } from './login/login.component';
-import { BlogAdminComponent } from './blog-admin/blog-admin.component';
-import { BlogPostComponent } from './blog-post/blog-post.component';
+
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'aboutme', component: AboutMeComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'bloghome', component: BlogHomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'blog-admin', component: BlogAdminComponent },
-  { path: 'blog/:id', component: BlogPostComponent },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./home/home.component').then((m) => m.HomeComponent),
+    title: 'Code Chicano - Home',
+  },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./home/home.component').then((m) => m.HomeComponent),
+    title: 'Code Chicano - Home',
+  },
+  {
+    path: 'aboutme',
+    loadComponent: () =>
+      import('./about-me/about-me.component').then((m) => m.AboutMeComponent),
+    title: 'Code Chicano - About Me',
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./contact/contact.component').then((m) => m.ContactComponent),
+    title: 'Code Chicano - Contact',
+  },
+  {
+    path: 'bloghome',
+    loadComponent: () =>
+      import('./blog-home/blog-home.component').then(
+        (m) => m.BlogHomeComponent
+      ),
+    title: 'Code Chicano - Blog',
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login.component').then((m) => m.LoginComponent),
+    title: 'Code Chicano - Login',
+  },
+  {
+    path: 'blog-admin',
+    loadComponent: () =>
+      import('./blog-admin/blog-admin.component').then(
+        (m) => m.BlogAdminComponent
+      ),
+    title: 'Code Chicano - Admin',
+  },
+  {
+    path: 'blog/:id',
+    loadComponent: () =>
+      import('./blog-post/blog-post.component').then(
+        (m) => m.BlogPostComponent
+      ),
+    title: 'Code Chicano - Blog Post',
+  },
 ];
