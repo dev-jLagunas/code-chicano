@@ -19,7 +19,7 @@
         <li>
           <button
             mat-stroked-button
-            (click)="routeToHome(contentSection); sidenav.toggle()"
+            (click)="routeToHome(contentSection)"
             class="sidenav-link-button"
           >
             Home
@@ -28,7 +28,7 @@
         <li>
           <button
             mat-stroked-button
-            (click)="routeToAboutMe(contentSection); sidenav.toggle()"
+            (click)="routeToAboutMe(contentSection)"
             class="sidenav-link-button"
           >
             About Me
@@ -37,7 +37,7 @@
         <li>
           <button
             mat-stroked-button
-            (click)="routeToBlogHome(contentSection); sidenav.toggle()"
+            (click)="routeToBlogHome(contentSection)"
             class="sidenav-link-button"
           >
             Blog
@@ -46,7 +46,7 @@
         <li>
           <button
             mat-stroked-button
-            (click)="routeToContact(contentSection); sidenav.toggle()"
+            (click)="routeToContact(contentSection)"
             class="sidenav-link-button"
           >
             Contact
@@ -55,7 +55,7 @@
         <li>
           <button
             mat-stroked-button
-            (click)="routeToLogin(contentSection); sidenav.toggle()"
+            (click)="routeToLogin(contentSection)"
             class="sidenav-link-button"
           >
             Login
@@ -70,11 +70,13 @@
         (click)="themeService.updateTheme()"
         aria-label="Toggle dark mode"
       >
-        @if (themeService.themeSignal() === 'dark') {
-        <i class="fa-solid fa-sun"></i>
-        } @else {
-        <i class="fa-solid fa-moon"></i>
-        }
+        <i
+          [ngClass]="
+            themeService.themeSignal() === 'dark'
+              ? 'fa-solid fa-moon'
+              : 'fa-solid fa-sun'
+          "
+        ></i>
       </mat-slide-toggle>
       <button
         mat-stroked-button

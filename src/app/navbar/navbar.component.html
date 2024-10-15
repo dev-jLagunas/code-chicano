@@ -21,11 +21,13 @@
     (click)="themeService.updateTheme()"
     aria-label="Toggle dark mode"
   >
-    @if (themeService.themeSignal() === 'dark') {
-    <i class="fa-solid fa-sun"></i>
-    } @else {
-    <i class="fa-solid fa-moon"></i>
-    }
+    <i
+      [ngClass]="
+        themeService.themeSignal() === 'dark'
+          ? 'fa-solid fa-moon'
+          : 'fa-solid fa-sun'
+      "
+    ></i>
   </mat-slide-toggle>
   <p class="navbar-info-text">
     A blog about my journey as a self-taught developer. Things I've learned, my

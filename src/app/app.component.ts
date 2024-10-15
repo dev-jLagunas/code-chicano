@@ -15,6 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { LoginComponent } from './login/login.component';
 import { BlogAdminComponent } from './blog-admin/blog-admin.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -51,25 +52,30 @@ export class AppComponent implements AfterViewInit {
   routeToHome(contentSection: HTMLElement): void {
     this.router.navigate(['home']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
+    this.sidenav.toggle();
   }
 
   routeToAboutMe(contentSection: HTMLElement): void {
     this.router.navigate(['aboutme']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
+    this.sidenav.toggle();
   }
 
   routeToContact(contentSection: HTMLElement): void {
     this.router.navigate(['contact']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
+    this.sidenav.toggle();
   }
 
   routeToBlogHome(contentSection: HTMLElement): void {
     this.router.navigate(['bloghome']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
+    this.sidenav.toggle();
   }
 
   routeToLogin(contentSection: HTMLElement): void {
     this.router.navigate(['login']);
     contentSection.scrollIntoView({ behavior: 'smooth' });
+    this.sidenav.toggle();
   }
 }
