@@ -5,12 +5,12 @@
     class="navbar-sombrero-logo"
   />
   <ul class="navbar-links">
-    <li class="navlink" (click)="routeToHome()">Home</li>
-    <li class="navlink" (click)="routeToAbout()">About</li>
-    <li class="navbar-blog-title">Code Chicano</li>
-    <li class="navlink" (click)="routeToBlogHome()">Blog</li>
-    <li class="navlink" (click)="routeToContact()">Contact</li>
-    <li class="navlink login-link" (click)="routeToLogin()">
+    <li class="navlink" routerLink="home">Home</li>
+    <li class="navlink" routerLink="aboutme">About</li>
+    <li class="navbar-blog-title" routerLink="">Code Chicano</li>
+    <li class="navlink" routerLink="bloghome">Blog</li>
+    <li class="navlink" routerLink="contact">Contact</li>
+    <li class="navlink login-link" routerLink="login">
       Login<i class="fa-solid fa-user"></i>
     </li>
   </ul>
