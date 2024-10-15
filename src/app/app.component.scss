@@ -15,6 +15,15 @@ Mat Sidenav Config Styling
   height: 100vh;
 }
 
+.mat-sidenav-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mat-sidenav-content::-webkit-scrollbar {
+  display: none;
+}
+
 /**********************************************************************
 Sidenav Styles - content visible when sidenav is OPEN
 **********************************************************************/

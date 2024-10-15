@@ -49,6 +49,10 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
+  scrollToContent(contentSection: HTMLElement): void {
+    contentSection.scrollIntoView({ behavior: 'smooth' });
+  }
+
   routeToHome(contentSection: HTMLElement): void {
     this.router.navigate(['home']);
     contentSection.scrollIntoView({ behavior: 'smooth' });

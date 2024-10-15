@@ -2,6 +2,7 @@
   class="mat-sidenav-container"
   [ngClass]="themeService.themeSignal()"
 >
+  <!-- This is the content inside the actual sidenav when opened -->
   <mat-sidenav
     #sidenav
     mode="over"
@@ -62,22 +63,6 @@
           </button>
         </li>
       </ul>
-
-      <mat-slide-toggle
-        class="darkmode-toggle-btn"
-        color="warn"
-        [checked]="themeService.themeSignal() === 'dark'"
-        (click)="themeService.updateTheme()"
-        aria-label="Toggle dark mode"
-      >
-        <i
-          [ngClass]="
-            themeService.themeSignal() === 'dark'
-              ? 'fa-solid fa-moon'
-              : 'fa-solid fa-sun'
-          "
-        ></i>
-      </mat-slide-toggle>
       <button
         mat-stroked-button
         (click)="sidenav.close()"
@@ -87,6 +72,7 @@
       </button>
     </aside>
   </mat-sidenav>
+  <!-- This is the main content that is always visible when sidenav NOT opened -->
   <mat-sidenav-content class="blogmain-content-container">
     <div class="navbar-content-container">
       <button
@@ -100,9 +86,9 @@
       <button
         mat-stroked-button
         class="blogmain-see-more-btn"
-        (click)="routeToHome(contentSection)"
+        (click)="scrollToContent(contentSection)"
       >
-        See More
+        Scroll Down
       </button>
     </div>
     <section #contentSection>
