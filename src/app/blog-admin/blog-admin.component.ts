@@ -7,10 +7,10 @@ import { BlogService } from '../../services/blog.service';
 import { QuillModule } from 'ngx-quill';
 import {
   FormGroup,
-  FormControl,
   Validators,
   FormsModule,
   ReactiveFormsModule,
+  FormBuilder,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -20,7 +20,6 @@ import {
 import { BlogEntriesComponent } from './blog-entries/blog-entries.component';
 import { BlogPost } from '../../interface/blog-post';
 import { takeUntil, Subject } from 'rxjs';
-
 @Component({
   selector: 'app-blog-admin',
   standalone: true,
@@ -41,24 +40,25 @@ import { takeUntil, Subject } from 'rxjs';
 })
 export class BlogAdminComponent implements OnInit, OnDestroy {
   blogForm!: FormGroup;
-  blogPosts: any[] = [];
+  blogPosts: BlogPost[] = [];
   inEditMode: boolean = false;
   private destroy$ = new Subject<void>();
 
   constructor(
     private blogService: BlogService,
-    private _bottomSheet: MatBottomSheet
+    private _bottomSheet: MatBottomSheet,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
-    this.blogForm = new FormGroup({
-      title: new FormControl('', Validators.required),
-      subtitle: new FormControl(''),
-      imageUrl: new FormControl(''),
-      date: new FormControl(new Date()),
-      description: new FormControl('', Validators.required),
-      id: new FormControl(null),
-      content: new FormControl('', Validators.required),
+    this.blogForm = this.fb.group({
+      title: ['', Validators.required],
+      subtitle: [''],
+      imageUrl: [''],
+      date: [new Date()],
+      description: ['', Validators.required],
+      id: [null],
+      content: ['', Validators.required],
     });
 
     this.blogService.blogPosts$.subscribe((posts) => {
@@ -68,9 +68,8 @@ export class BlogAdminComponent implements OnInit, OnDestroy {
 
   submitBlogForm() {
     if (this.blogForm.valid) {
-      // Include ID in the formData if it exists
       const formData: BlogPost = {
-        id: this.blogForm.get('id')?.value, // Ensure ID is included if it's an update
+        id: this.blogForm.get('id')?.value,
         title: this.blogForm.value.title,
         subtitle: this.blogForm.value.subtitle,
         imageUrl: this.blogForm.value.imageUrl,
@@ -80,7 +79,6 @@ export class BlogAdminComponent implements OnInit, OnDestroy {
       };
 
       if (formData.id) {
-        // If ID exists, update the existing post
         this.blogService
           .updateBlogPost(formData)
           .pipe(takeUntil(this.destroy$))
@@ -106,10 +104,9 @@ export class BlogAdminComponent implements OnInit, OnDestroy {
           });
       }
 
-      // Reset the form after submission
       this.blogForm.reset();
-      this.blogForm.get('date')?.setValue(new Date()); // Set date to current date after reset
-      this.blogForm.get('id')?.setValue(null); // Ensure ID is reset
+      this.blogForm.get('date')?.setValue(new Date());
+      this.blogForm.get('id')?.setValue(null);
     } else {
       console.log('Form is not valid');
     }

@@ -7,6 +7,7 @@ import {
 import { DatePipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { Subject, takeUntil } from 'rxjs';
+import { BlogPost } from '../../../interface/blog-post';
 
 @Component({
   selector: 'app-blog-entries',
@@ -16,7 +17,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './blog-entries.component.scss',
 })
 export class BlogEntriesComponent implements OnInit, OnDestroy {
-  blogPosts: any[] = [];
+  blogPosts: BlogPost[] = [];
   private destroy$ = new Subject<void>();
 
   constructor(
