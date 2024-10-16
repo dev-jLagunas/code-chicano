@@ -9,7 +9,7 @@
     </figure>
     <p class="page-header-title">BLOG - HOME</p>
   </header>
-  @if (blogPosts) {
+  @if (blogPosts$) {
   <div class="content-header-container">
     <h3 class="blog-title">Blog Posts</h3>
     <button mat-stroked-button [matMenuTriggerFor]="menu">
@@ -22,7 +22,7 @@
     </mat-menu>
   </div>
   <main class="blog-posts-container">
-    @for ( post of blogPosts ; track $index) {
+    @for ( post of blogPosts$ | async; track post.id) {
     <mat-card
       class="single-post-container"
       [class.dark-theme]="themeService.themeSignal() === 'dark'"
@@ -31,7 +31,7 @@
         <img
           mat-card-image
           [src]="post.imageUrl"
-          alt="photo of blog"
+          alt="blog post photo"
           class="post-img"
         />
       </figure>
@@ -48,7 +48,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-stroked-button (click)="goToBlogDetail(post.id)">
+        <button mat-stroked-button (click)="routeToBlogDetail(post.id!)">
           See More
         </button>
       </mat-card-actions>

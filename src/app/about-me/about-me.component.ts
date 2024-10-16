@@ -34,8 +34,6 @@ export class AboutMeComponent {
     'Typescript',
     'Angular',
     'Vue',
-    'Node.js',
-    'Bootstrap',
   ];
 
   myBlog: string[] = [
