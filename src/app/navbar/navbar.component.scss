@@ -6,6 +6,7 @@ Import Variables
 /**********************************************************************
 Navbar Styles - Mobile First
 **********************************************************************/
+
 .navbar-container {
   @include flex-center;
 
@@ -72,6 +73,7 @@ Navbar Styles - Media Query Specific
     & .navlink {
       letter-spacing: $letter-spacing-sm;
       font-size: $font-xs;
+      cursor: pointer;
     }
 
     & .login-link {
@@ -82,6 +84,11 @@ Navbar Styles - Media Query Specific
       & .fa-user {
         margin-left: 5px;
       }
+    }
+
+    & .logout-icon {
+      padding-left: 5px;
+      cursor: pointer;
     }
 
     & .darkmode-toggle-btn {

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
 
       this.authService
-        .login(email, password)
+        .login(email.trim(), password.trim())
         .then(() => {
           this.router.navigate(['blog-admin']);
         })
