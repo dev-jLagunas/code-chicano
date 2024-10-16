@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { BlogPost } from '../../interface/blog-post';
 
 @Component({
   selector: 'app-blog-post',
@@ -13,7 +14,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './blog-post.component.scss',
 })
 export class BlogPostComponent implements OnInit {
-  post$!: Observable<any>;
+  post$!: Observable<BlogPost | undefined>;
 
   constructor(
     private blogService: BlogService,
@@ -22,14 +23,7 @@ export class BlogPostComponent implements OnInit {
 
   ngOnInit() {
     this.post$ = this.route.paramMap.pipe(
-      switchMap((params) => {
-        const id = params.get('id');
-        if (id !== null) {
-          return this.blogService.getBlogPostById(id);
-        } else {
-          throw new Error('Blog post ID not found in route parameters.');
-        }
-      })
+      switchMap((params) => this.blogService.getBlogPostById(params.get('id')!))
     );
   }
 }

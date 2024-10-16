@@ -38,7 +38,7 @@
           <button
             mat-stroked-button
             class="content-btn"
-            (click)="openFeaturedDialog()"
+            (click)="openDialog(FeaturedDialogComponent)"
           >
             See Featured
           </button>
@@ -53,7 +53,7 @@
           <button
             mat-stroked-button
             class="content-btn"
-            (click)="openLatestDialog()"
+            (click)="openDialog(LatestDialogComponent)"
           >
             See Latest
           </button>
@@ -65,11 +65,7 @@
           <p class="content-header">
             Click to see my entire blog up to this point! could be cool?
           </p>
-          <button
-            mat-stroked-button
-            class="content-btn"
-            (click)="navigateToBlogHome()"
-          >
+          <button mat-stroked-button class="content-btn" routerLink="bloghome">
             See Blog
           </button>
         </div>
@@ -83,7 +79,7 @@
           <button
             mat-stroked-button
             class="content-btn"
-            (click)="openRandomDialog()"
+            (click)="openDialog(RandomDialogComponent)"
           >
             See Random
           </button>

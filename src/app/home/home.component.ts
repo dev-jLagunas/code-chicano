@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FeaturedDialogComponent } from './featured-dialog/featured-dialog.component';
 import { LatestDialogComponent } from './latest-dialog/latest-dialog.component';
@@ -16,30 +16,19 @@ import { RandomDialogComponent } from './random-dialog/random-dialog.component';
     FeaturedDialogComponent,
     LatestDialogComponent,
     RandomDialogComponent,
+    RouterLink,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  constructor(private router: Router, public dialog: MatDialog) {}
+  public FeaturedDialogComponent = FeaturedDialogComponent;
+  public LatestDialogComponent = LatestDialogComponent;
+  public RandomDialogComponent = RandomDialogComponent;
 
-  navigateToBlogHome() {
-    this.router.navigate(['/bloghome']);
-  }
+  constructor(public dialog: MatDialog) {}
 
-  openFeaturedDialog(): void {
-    this.dialog.open(FeaturedDialogComponent, {
-      autoFocus: false,
-    });
-  }
-
-  openLatestDialog(): void {
-    this.dialog.open(LatestDialogComponent, {
-      autoFocus: false,
-    });
-  }
-
-  openRandomDialog(): void {
-    this.dialog.open(RandomDialogComponent);
+  openDialog(dialogComponent: any): void {
+    this.dialog.open(dialogComponent, { autoFocus: false });
   }
 }
