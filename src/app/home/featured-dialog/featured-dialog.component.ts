@@ -3,18 +3,26 @@ import { BlogService } from '../../../services/blog.service';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { ThemeService } from '../../../services/theme.service';
 import { Router } from '@angular/router';
+import { BlogPost } from '../../../interface/blog-post';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-featured-dialog',
   standalone: true,
-  imports: [MatButtonModule, MatDialogModule, MatCardModule, DatePipe],
+  imports: [
+    MatButtonModule,
+    MatDialogModule,
+    MatCardModule,
+    DatePipe,
+    AsyncPipe,
+  ],
   templateUrl: './featured-dialog.component.html',
   styleUrl: './featured-dialog.component.scss',
 })
 export class FeaturedDialogComponent implements OnInit {
-  featuredPost!: any;
+  featuredPost$!: Observable<BlogPost | null>;
   constructor(
     private blogService: BlogService,
     public themeService: ThemeService,
@@ -23,15 +31,7 @@ export class FeaturedDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.blogService.getRandomBlogPost().subscribe({
-      next: (post) => {
-        this.featuredPost = post; // Update the latestPost only when the data is received
-      },
-      error: (error) => {
-        console.error('Error fetching the latest post:', error);
-        this.featuredPost = null; // Handle potential errors, perhaps show a message or a default state
-      },
-    });
+    this.featuredPost$ = this.blogService.getRandomBlogPost();
   }
 
   goToBlogDetail(postId: string) {

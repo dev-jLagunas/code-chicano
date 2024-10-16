@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './random-dialog.component.scss',
 })
 export class RandomDialogComponent {
-  thoughts: string[] = [
+  facts: string[] = [
     'The first computer programmer was a woman named Ada Lovelace.',
     'The first high-level (very close to English) programming language was FORTRAN. It was invented by IBM for scientific computing.',
     'The first computer mouse was made of wood and was invented by Doug Engelbart in 1964.',
@@ -32,6 +32,7 @@ export class RandomDialogComponent {
     'The first electro-mechanical computer was developed in 1939 by Howard Aiken.',
     'The first digital computer, ENIAC, weighed almost 27 tons and took up 1800 square feet.',
   ];
+
   selectedFact!: string;
 
   constructor() {
@@ -39,7 +40,7 @@ export class RandomDialogComponent {
   }
 
   getRandomFact(): string {
-    const randomIndex = Math.floor(Math.random() * this.thoughts.length);
-    return this.thoughts[randomIndex];
+    const randomIndex = Math.floor(Math.random() * this.facts.length);
+    return this.facts[randomIndex];
   }
 }

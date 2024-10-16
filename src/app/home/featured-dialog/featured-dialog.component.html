@@ -4,7 +4,7 @@
     <h3>Featured Post</h3>
     <p>Scroll down to see this weeks featured post. Updated weekly.</p>
   </div>
-
+  @if (featuredPost$ | async; as featuredPost) {
   <section class="parallax-container-2">
     <div class="thoughts-content">
       <h3>Featured</h3>
@@ -35,11 +35,12 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-stroked-button (click)="goToBlogDetail(featuredPost.id)">
+          <button mat-stroked-button (click)="goToBlogDetail(featuredPost.id!)">
             See More
           </button>
         </mat-card-actions>
       </mat-card>
     </div>
   </section>
+  }
 </mat-dialog-content>
