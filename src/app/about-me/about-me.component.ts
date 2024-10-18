@@ -37,7 +37,7 @@ export class AboutMeComponent {
   ];
 
   myBlog: string[] = [
-    `My goal by creating this blog is primarily to showcase the projects I created and as
+    `My goal by creating this blog is primarily challenge myself and
   a way to let employers know how serious I take becoming a great programmer. Furthermore, I feel that writing
   my thoughts, my experiences, and the process of creating these projects will really help cement the knowledge
   into my brain. There is so much to learn with programming so its really easy to forget concepts. I believe

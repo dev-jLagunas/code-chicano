@@ -52,12 +52,12 @@ export class BlogAdminComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.blogForm = this.fb.group({
+      id: [null],
       title: ['', Validators.required],
       subtitle: [''],
       imageUrl: [''],
       date: [new Date()],
       description: ['', Validators.required],
-      id: [null],
       content: ['', Validators.required],
     });
 
@@ -77,7 +77,7 @@ export class BlogAdminComponent implements OnInit, OnDestroy {
         description: this.blogForm.value.description,
         content: this.blogForm.value.content,
       };
-
+      // FORM BLOG ENTRY EDITING LOGIC
       if (formData.id) {
         this.blogService
           .updateBlogPost(formData)
@@ -90,13 +90,14 @@ export class BlogAdminComponent implements OnInit, OnDestroy {
               console.error('Error updating blog post:', e);
             },
           });
+        // FORM BLOG ENTRY ADD NEW
       } else {
         this.blogService
           .addBlogPost(formData)
           .pipe(takeUntil(this.destroy$))
           .subscribe({
-            next: (updatedPost) => {
-              alert(`Blog post '${updatedPost.title}' added successfully`);
+            next: (newPost) => {
+              alert(`Blog post '${newPost.title}' added successfully`);
             },
             error: (e) => {
               console.error('Error adding blog post:', e);

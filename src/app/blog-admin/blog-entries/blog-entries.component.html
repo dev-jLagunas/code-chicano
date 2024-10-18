@@ -1,5 +1,5 @@
 <section class="entries-page-container">
-  @for ( post of blogPosts; track $index) {
+  @for ( post of blogPosts$ | async; track post.id) {
   <div class="blog-entries-container">
     <div>
       <h1>{{ post.title }}</h1>

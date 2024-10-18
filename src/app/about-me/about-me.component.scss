@@ -215,10 +215,6 @@ Component Styles - Media Query Specific - Min-Width: 768px;
 Component Styles - Media Query Specific - Min-Width: 1024px;
 **********************************************************************/
 @media (min-width: 1024px) {
-  // .about-content-container {
-  //   width: 75vw;
-  // }
-
   .about-tabs-container {
     & .tab-content {
       font-size: $font-sm;
