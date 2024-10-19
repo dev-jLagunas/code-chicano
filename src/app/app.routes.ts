@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   {
@@ -46,6 +47,7 @@ export const routes: Routes = [
         (m) => m.BlogAdminComponent
       ),
     title: 'Code Chicano - Admin',
+    canActivate: [authGuard],
   },
   {
     path: 'blog/:id',
