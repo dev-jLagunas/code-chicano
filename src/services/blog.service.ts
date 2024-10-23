@@ -118,7 +118,7 @@ export class BlogService {
   getRandomBlogPost(): Observable<BlogPost | null> {
     return this.blogPosts$.pipe(
       map((posts) => {
-        if (posts.length === 0) return null;
+        if (!posts.length) return null;
         const randomIndex = Math.floor(Math.random() * posts.length);
         return posts[randomIndex];
       }),
@@ -132,7 +132,7 @@ export class BlogService {
   getNewestEntry(): Observable<BlogPost | null> {
     return this.blogPosts$.pipe(
       map((posts) => {
-        if (posts.length === 0) return null;
+        if (!posts.length) return null;
         posts.sort(
           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
